@@ -1,8 +1,8 @@
 /*
 object-fit: se usa para especificar cómo se debe cambiar el tamaño de <img> o <video> para que se ajuste a su contenedor.
     fill: valor por defecto
-    contain: El contenido se ajustará hasta rellenar de forma horizontal o vertical el contenedor sin deformarse
-    cover: El contenido se ajustará hasta rellenar de forma horizontal y vertical el contenedor sin deformarse
+    contain: El contenido se ajustará hasta rellenar de forma horizontal "o" vertical el contenedor sin deformarse
+    cover: El contenido se ajustará hasta rellenar de forma horizontal "y" vertical el contenedor sin deformarse, se agranda y quita el resto sobrante.
     none: El contenido no se redimensiona y mantiene su tamño original mostrando solo el trozo de las dimensiones especificadas
     scale-down: Selecciona el menor de la comparación entre none y contain.
 
@@ -53,4 +53,5 @@ filter:
 
 .img-2:hover{
     filter: none;
+    
 }

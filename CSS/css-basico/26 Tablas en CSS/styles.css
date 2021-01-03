@@ -11,12 +11,12 @@
         recibe una medida en cualquier unidad 
 
     border-collapse: Controla si las celdas se mantienen juntas o separadas.
-        separate: valor por defecto
-        collapse: junta las celdas para no
+        separate: valor por defecto, celdas ceparadas
+        collapse: junta las celdas, borde spacing no sirve y tampoco hide ocultar celdas.
     
     empty-cells: Controla qué hacer con las celdas vacías
-        show: valor por defecto
-        hide: oculta las celdas vacías
+        show: valor por defecto, muestra todas las celdas vacias o no.
+        hide: oculta las celdas vacías.
 */
 
 /* .table{

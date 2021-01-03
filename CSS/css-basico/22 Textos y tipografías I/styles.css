@@ -8,15 +8,15 @@ A los tipos de letra que existen se les denomina fuentes o tipografía
 
 Familias tipográficas
     Tienen nombre propio
-      Arial, Times New Roman, open sans, ubuntu
+        Arial, Times New Roman, open sans, ubuntu
 
 Familias genéricas o seguras
     Su nombre se basa en sus características
-      serif: Tienen un adorno en los remates
-      sans-serif: Tienen un corte seco en los remates
-      cursive: emulan tipografia manuscrita
-      fantasy: Letra decorativa
-      monospace: Todos los caracteres tienen el mismo ancho
+        serif: Tienen un adorno en los remates
+        sans-serif: Tienen un corte seco en los remates
+        cursive: emulan tipografia manuscrita
+        fantasy: Letra decorativa
+        monospace: Todos los caracteres tienen el mismo ancho
 
 FONT
     font-family: Establece la familia tipográfica
@@ -52,7 +52,7 @@ body {
    font-style: oblique;
 }
 
-.span {
+.span{
     /* font-size: 200%; */
 }
 
