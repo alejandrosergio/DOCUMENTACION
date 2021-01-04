@@ -45,3 +45,16 @@ body{
 .box:hover > .box__item{
     clip-path: polygon(0% 0%, 0% 100%, 10% 100%, 10% 10%, 90% 10%, 90% 90%, 10% 90%, 10% 100%, 100% 100%, 100% 0%);
 }
+.box__item2{
+    background: lightcoral;
+    width: 400px;
+    height: 400px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+    transition: clip-path .5s;
+}
+
+.box:hover > .box__item2{
+    clip-path: polygon(15% 35%, 92% 34%, 92% 75%, 75% 75%, 33% 96%, 50% 75%, 17% 76%);
+}
+
+

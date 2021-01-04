@@ -27,10 +27,10 @@ Flexbox
 }
 
 .flex-item {
-    width: 30px;
-    height: 30px;
+    width: 100px;
+    height: 100px;
     margin: .5em;
-    line-height: 30px;
+    line-height: 100px;
     color: aliceblue;
     text-align: center;
     background-color: #9A348E;

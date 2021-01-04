@@ -40,3 +40,15 @@ text-shadow: h-offset v-offset blur color
     text-align: center;
     text-shadow: 1px 1px 0 red;
 }
+.title2{
+    text-align: center;
+    text-shadow: 10px 10px 5px gray;
+}
+.box2{
+    background: #aaa;
+    width: 200px;
+    height: 200px;
+    border: 3px solid black;
+    margin: 2em auto;
+    box-shadow: 10px 10px 10px gray;
+}

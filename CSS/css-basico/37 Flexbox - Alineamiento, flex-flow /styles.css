@@ -16,9 +16,11 @@ Flexbox
         space-around distribuye los items a la misma distancia y deja un espacio exterior en el primero y en el último flex-item
 
         space-evenly distribuye los items y los espacios exteriores del primer y último flex-item dejando la misma distancia entre todos.
+    
     cross-axis
         align-items: Una sola línea.
             flex-start | center | flex-end | stretch(default) | baseline
+            
         align-content:varias líneas
             flex-start | center | flex-end | stretch(default) | baseline
 

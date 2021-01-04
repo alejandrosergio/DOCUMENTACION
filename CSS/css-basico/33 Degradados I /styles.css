@@ -47,3 +47,23 @@ Degradados radiales
     margin: 2em auto;
     background-image: radial-gradient(ellipse 225px 50px at bottom, transparent 50%, blue 50%);
 }
+.box2{
+    width: 200px;
+    height: 200px;
+    border: 3px solid black;
+    margin: 2em auto;
+    background-image: radial-gradient(circle 100px at top, red 50%, blue 50%);
+}
+.box3{
+    border-radius: 15px;
+    margin: 2em auto;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 10px gray;
+    font-size: 2em;
+    text-align: center;
+    line-height: 200px;
+    font-family: cursive;
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient(  red 0% 35%  , yellow 35% 65%, red 65% 100% );
+}
