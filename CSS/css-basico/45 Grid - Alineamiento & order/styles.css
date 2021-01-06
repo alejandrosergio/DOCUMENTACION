@@ -1,5 +1,5 @@
 /*
-   Alineamiento:
+Alineamiento:
     justify-items: Alinea los elementos horizontalmente respecto a la celda
 
     align-items: Alinea los elementos verticalmente respecto a la celda
@@ -11,7 +11,7 @@
         stretch (default)
 
     place-items: Engloba las propiedades justify-items y align-items
-      place-items: align-items justify-items
+    place-items: align-items justify-items
 
     justify-content: Alinea los elementos horizontalmente respecto al contenedor
 

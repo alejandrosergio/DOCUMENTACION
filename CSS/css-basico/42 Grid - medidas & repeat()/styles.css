@@ -10,7 +10,7 @@
             repeat(nColumnas o nFilas, medida)
             grid-template-columns: repeat(4,100px) es lo mismo que grid-template-columns: 100px 100px 100px 100px;
         Si como segundo valor añadimos más de una medida, construiremos un patrón, no hay límite de valores.
-            grid-template-columns: repeat(2, 100px 50px...) es lo mismo que grid-template-columns: 100px 50px 50px 100px;
+            grid-template-columns: repeat(2, 100px 50px...) es lo mismo que grid-template-columns: 100px 50px 100px 50px;
 */
 
 body {
@@ -26,7 +26,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 40px 50px 40px);
+    grid-template-columns: repeat(2, 40px 80px 60px);
 }
 
 .grid-item {

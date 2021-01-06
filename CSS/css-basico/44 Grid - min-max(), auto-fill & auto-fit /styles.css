@@ -1,5 +1,5 @@
 /*
-   minmax():
+    minmax():
     Recibe dos parámetros (valores) para establecer el mínimo y el máximo que pueden tener los items.
     grid-template-columns: repeat(2, minmax(100px, 1fr));
 
@@ -21,8 +21,8 @@ body {
 .grid-container {
     display: grid;
     grid-gap: 2px;
-    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .grid-item {
