@@ -41,7 +41,8 @@ Padding-left: 4em;
     height: 200px;
     background: lightcoral;
     border: 2px solid blue;
-    padding: 1em 2em 3em 4em;
+    padding: 5em 2em 3em 4em;
+    margin: 2em auto;
 }
 
 .box2-content{

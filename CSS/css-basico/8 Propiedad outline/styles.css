@@ -35,4 +35,24 @@ outline-left-(width | style | color)
     border-top-width: 200px;
     border-top-color: transparent;
 }
-
+.img-box{
+    width: 90%;
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+img{
+    border: 5px solid salmon;
+    outline: 5px solid salmon;
+    outline-offset: -40px;
+}
+img:hover{
+    outline-offset: -30px;
+    box-shadow: 10px 10px 10px gray;
+}
+.text{
+    font-size: 2em;
+    position: absolute;
+    color: salmon;
+}

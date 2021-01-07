@@ -29,4 +29,5 @@ Al ser un elemento posicionado lo podemos mover en los 3 ejes X Y Z
 .box2{
     background:lightcoral;
     position: relative;
+    margin-left: 200px;
 }
