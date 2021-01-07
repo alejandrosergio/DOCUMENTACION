@@ -21,7 +21,7 @@ BEMIT
 
 .main-title{text-align: center;}
 
-.header{background: lightblue;height: 50px;}
+.main-header{background: lightblue;height: 50px;}
 
 .main{background:lightseagreen;height: 600px;}
 
@@ -75,6 +75,8 @@ a{
 
 /* Forma correcta según la metodología BEM */
 
+/* 
+
 .main-form{
 
 }
@@ -88,6 +90,8 @@ a{
 }
 
 /* Esta forma no es recomendada */
+
+/* 
 .form{
 
 }
@@ -98,4 +102,5 @@ a{
 
 .submit{
 
-}
+}  
+*/

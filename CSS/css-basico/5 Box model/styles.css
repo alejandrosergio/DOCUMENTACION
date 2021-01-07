@@ -1,3 +1,9 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
 h1{
     background: lightblue;
     height: 150px;
@@ -15,18 +21,30 @@ a{
     height: 300px;
 }
 
+.main-contenedor__cajas{
+    
+    font-size: .8em;
+    text-transform: uppercase;
+    line-height: 50px;
+    text-shadow: 10PX 5px 3px black;
+    text-align: center;
+}
+
 .box-1{
+    margin: 2em auto;
     width: 100px;
     height: 100px;
     background: lime;
     padding: 10px;
-    border: 10px solid blue; /* sus dimensiones cuentan para el tamaño total */
-    margin: 20px;
-    outline: 10px solid red; /* sus dimensiones NO cuentan para el tamaño total */
+    border: 10px solid blue; /* sus dimensiones de borde cuentan para el tamaño total de la caja empujando los contenidos */
+    outline: 10px solid red; /* sus dimensiones NO cuentan como borde para el tamaño total de la caja, como si no existiece */
 }
 
 .box-2{
+    margin: 0 auto;
     width: 100px;
     height: 100px;
     background: lightcoral;
+    outline: 4px solid purple;
+    box-shadow: 10px 10px 10px gray;
 }
