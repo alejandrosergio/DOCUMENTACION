@@ -8,11 +8,11 @@
         bottom: se coloca al pie de la tabla
     
     border-spacing: Controla el espacio entre las celdas
-        recibe una medida en cualquier unidad 
+        recibe una medida en cualquier unidad  (no funciona con collapse (juntar celdas))
 
     border-collapse: Controla si las celdas se mantienen juntas o separadas.
         separate: valor por defecto, celdas ceparadas
-        collapse: junta las celdas, borde spacing no sirve y tampoco hide ocultar celdas.
+        collapse: junta las celdas, (borde spacing no sirve y tampoco hide ocultar celdas.)
     
     empty-cells: Controla qué hacer con las celdas vacías
         show: valor por defecto, muestra todas las celdas vacias o no.
