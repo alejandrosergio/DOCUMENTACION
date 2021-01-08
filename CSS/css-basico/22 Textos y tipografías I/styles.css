@@ -47,14 +47,14 @@ body {
 
 .title {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    /* font-size: 200%; */
-   /*  font-size: 10vmin; */
-   font-style: oblique;
+    font-size: 200%; 
+    font-size: 10vmin; 
+    font-style: oblique;
 }
 
 .span{
-    /* font-size: 200%; */
-}
+    font-size: 200%; 
+} 
 
 .paragraph{
     font-weight: lighter;

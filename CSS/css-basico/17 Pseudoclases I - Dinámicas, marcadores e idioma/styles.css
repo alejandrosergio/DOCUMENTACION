@@ -15,7 +15,7 @@ Language
 
 /*
     ===Ejercicios PSEUDOCLASES I===
-
+*/
         .link:link {
             color: red;
         }
@@ -28,7 +28,10 @@ Language
             color: cyan;
             background: red;
         }
-
+        
+        .title{
+            display: inline;
+        }
         .title:hover {
             color: blueviolet;
         }
@@ -43,7 +46,7 @@ Language
         }
 
         .button:active {
-            transform: scale(.9)
+            transform: scale(.7)
         }
 
         .button:hover {
@@ -54,7 +57,7 @@ Language
         }
 
         .input:focus {
-            background: green;
+            background: rgb(45, 0, 207);
         }
 
         .menu {
@@ -75,7 +78,7 @@ Language
         }
 
         .text:target {
-            padding-top: 75px;
+            padding: 20px;
         }
 
         .span {
@@ -89,4 +92,3 @@ Language
         .span:lang(es) {
             color: blue;
         }
-        */

@@ -19,7 +19,7 @@ Existen 5 pseudoelementos:
     font-size: 2em;
 }
 
-.text::first-line{
+.text::first-line{ 
     font-size: 2em;
     color:blue;
 }

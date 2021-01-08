@@ -24,7 +24,8 @@
 
     list-style-position: Hace que las viñetas se coloquen por dentro o por fuera del elemento 
         VIÑETA
-            outside [por fuera, por defecto]| inside [por dentro, pegado al escrito]
+            outside [por fuera, por defecto]|
+            inside [por dentro, pegado al escrito]
         
     list-style-image: ADVERTENCIA!!! Pone una imagen en lugar de la viñeta, no se suele utilizar porque hay formas mucho más eficientes de hacerlo
         url(imagen)

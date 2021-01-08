@@ -18,16 +18,41 @@
     list-item - Imita el comportamiento de una lista
 
     CSS3
+
     flex – maquetar componentes
     grid – maquetar layout
+
 */
 
-.inline{
+.inline1{
     background: lime;
-    display: none;
+    width: 200px;
+    height: 200px;
+
 }
 
-.block{
+.inline2{
+    display: inline-block;
+    background: lime;
+    width: 200px;
+    height: 200px;
+
+}
+.inline3{
+    display: inline-block;
+    background: lime;
+    width: 200px;
+    height: 200px;
+
+}
+.block1{
     background: yellow;
-    margin: 0;
+    width: 200px;
+    height: 200px;
+}
+.block2{
+    display: inline;
+    background: yellow;
+    width: 200px;
+    height: 200px;
 }

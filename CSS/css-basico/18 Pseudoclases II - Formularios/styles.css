@@ -40,7 +40,7 @@ UI States
 }
 
 .input:optional{
-    background: purple;
+    background: rgb(123, 255, 193);
 }
 
 .input:required{
