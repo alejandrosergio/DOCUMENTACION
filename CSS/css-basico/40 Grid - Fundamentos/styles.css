@@ -8,7 +8,6 @@ body {
     font-family: sans-serif;
     background-image: radial-gradient(circle, #b94bf8, #3a1957);
     background-repeat: no-repeat;
-    line-height: 5em;
 }
 
 .grid-container {
@@ -21,10 +20,10 @@ body {
 }
 
 .grid-item {
-    border: 1px solid;
+    border: 1px solid white;
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
     padding: 1rem;
-    font-size: 2rem;
+    font-size: 2rem;;
 }

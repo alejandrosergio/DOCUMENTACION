@@ -34,7 +34,7 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 100px);
-    grid-auto-flow: column dense;
+    grid-auto-flow: row dense;
 }
 
 .grid-item {
@@ -64,7 +64,7 @@ body {
 }
 
 .grid-item:last-child {
-    grid-column: span 3;
+    grid-column: span 5;
     grid-row: span 3;
     background: royalblue;
 }

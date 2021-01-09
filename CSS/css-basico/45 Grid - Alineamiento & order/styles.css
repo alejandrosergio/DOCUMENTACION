@@ -1,7 +1,9 @@
 /*
 Alineamiento:
+    (MAIN)
     justify-items: Alinea los elementos horizontalmente respecto a la celda
 
+    (CROOS)
     align-items: Alinea los elementos verticalmente respecto a la celda
 
     Admiten los valores:
@@ -29,15 +31,15 @@ Alineamiento:
     place-content: align-content justify-content
 
     Tenemos las mismas propiedades con self para los items:
-        justify-self
-        align-self
-        place-self
+        justify-self:
+        align-self:
+        place-self:
 
         Admite los valores:  
-            start
-            end
-            center
-            stretch
+            start;
+            end;
+            center;
+            stretch;
 
     order: Funciona igual que en flexbox, por defecto todos los items tienen order:0
 */
@@ -56,13 +58,14 @@ body {
     height: 80vh;
     border: 3px solid yellow;
     grid-template-columns: repeat(3, 1fr);
+
     /* justify-items: center; */
-    /* align-items: center; */
-    /* place-items: center end; */
+    /* align-items: center; */ 
+    /* .. place-items: center end; .. */
 
     /* justify-content: space-evenly; */
     /* align-content: space-evenly; */
-    /* place-content: center end; */
+    /* .. place-content: center end; .. */
 }
 
 .grid-item {
@@ -77,7 +80,7 @@ body {
 .grid-item:nth-child(2) {
     /* align-self: stretch; */
     /* justify-self: stretch; */
-    /* place-self: start end; */
+    place-self: start center;
     background-color: royalblue;
     order: -1;
 }

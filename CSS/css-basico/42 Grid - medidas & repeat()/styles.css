@@ -1,7 +1,9 @@
 /*
     Medidas de la cuadrícula
-        Se pueden dar medidas con cualquiera de las unidades que ya conocemos y dos más que vienen con grid, fr y auto
+        Se pueden dar medidas con cualquiera de las unidades que ya conocemos y dos más que vienen con grid, fr y auto.
+
             fr: Equivale a n fracciones del espacio disponible después de establecer las medidas fijas.
+
             auto: Equivale al espacio que quede después de repartir todos elementos, es el último que se reparte. El tamaño mínimo del item será el espacio del contenido + el padding si lo tuviera
 
     función repeat()
@@ -26,10 +28,11 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 40px 80px 60px);
+    grid-template-columns: repeat(2, 140px 180px 160px);
 }
 
 .grid-item {
+    height: 100px;
     border: 1px solid;
     display: flex;
     align-items: center;
