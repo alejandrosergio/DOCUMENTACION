@@ -1,6 +1,7 @@
 /* 
 Flexbox
     Propiedad flex: Es un shorthand que engloba las siguientes propiedades.
+
         Todas las medidas se establecen en función del espacio disponible en el contenedor.
 
         Todas las propiedades van en función del MAIN-AXIS.
@@ -27,30 +28,35 @@ Flexbox
 
 .flex-container {
     background-color: #FCA17D;
-    height: 300px;
-    width: 400px;
+    height: 600px;
+    width: 800px;
     display: flex;
+    display: auto;
 }
 
 .flex-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     color: aliceblue;
     background-color: #9A348E;
+    margin: 2em 0em;
 }
 
 .flex-item:nth-child(2) {
     background: lightseagreen;
+    flex-grow: 1;
 }
 
 .flex-item:nth-child(3) {
-    background: lightskyblue;
+    background: rgb(158, 218, 255);
+    flex-basis: 250px;
 }
 
-.flex-item:first-child {
+.flex-item:first-child{
     background: darkgoldenrod;
+    flex-shrink: 1;
     order: 2;
-}
+} 

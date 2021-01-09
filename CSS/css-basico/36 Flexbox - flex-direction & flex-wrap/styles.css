@@ -23,13 +23,14 @@ Flexbox
     background-color: #FCA17D;
     padding: .5em 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 .flex-item {
     width: 100px;
     height: 100px;
-    margin: .5em;
+    margin: .5em .2em;
     line-height: 100px;
     color: aliceblue;
     text-align: center;

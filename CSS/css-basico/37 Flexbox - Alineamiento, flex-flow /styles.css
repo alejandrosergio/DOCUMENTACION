@@ -4,6 +4,7 @@ Flexbox
     Estas propiedades para alinear se aplican SIEMPRE al flex-container
 
     Existen propiedades para el main-axis y para el cross-axis
+
     main-axis:
         justify-content: flex-start(default) | center | space-between | space-around | space-evenly | flex-end
 
@@ -30,37 +31,37 @@ Flexbox
 */
 
 .flex-container {
+    border: 2px solid red;
     background-color: #FCA17D;
-    height: 400px;
-    width: 200px;
+    height: 600px;
+    width: 600px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .flex-item {
-    width: 50px;
-    height: 50px;
-    margin-bottom: auto;
-    margin-left: auto;
+    width: 100px;
+    height: 100px;
     color: aliceblue;
     background-color: #9A348E;
     text-align: center;
-    line-height: 50px;
+    line-height: 100px;
+    margin: 2em .5em;
 }
 
-/* .box {
+.box {
     border: 1px solid black;
     width: 100%;
     height: 600px;
     display: flex;
     align-items: center;
-} */
+}
 
-/* .box img {
+.box img {
     max-width: 50%;
-} */
+}
 
-/* .prices {
+.prices {
     display: flex;
     align-items: flex-start;
     height: 600px;
@@ -90,4 +91,4 @@ Flexbox
 .prices__item:nth-child(4) {
     background: lightgreen;
     line-height: 50px;
-} */
+}
