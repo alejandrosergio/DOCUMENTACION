@@ -1,0 +1,82 @@
+/* 
+
+	REM: Permite establecer tamaños de fuentes basados en el tamaño defuente del elemento html (root), lo que le pongas al alemento HTML o al usuario tenga predeterminado para su navegador sera la medida rem1 cada vez que suba esta medida se multiplicara al cubo
+
+	EM: Paracedido a rem, pero este no esta sujeto al valor que haya en el si no que puede heredar el valor de su padre cuando se establece un tamaño en este. 
+
+*/
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #f2f2f2;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	height: 100vh;
+}
+
+.contenedor {
+	background: #550a46;
+	color: #fff;
+	width: 90%;
+	max-width: 50em;
+	margin: 1.87em auto;
+	padding: 1.87em;
+	border-radius: 10px;
+}
+
+.contenedor h1 {
+	color: #f8b400;
+	margin-bottom: 1.25rem;
+	font-family: 'Merriweather', serif;
+	font-weight: normal;
+	font-size: 2rem;
+}
+
+.contenedor p {
+	line-height: 200%;
+	margin-bottom: 1.25rem;
+	font-size: 1rem;
+}
+
+.contenedor button {
+	font-size: 1rem;
+	display: inline-block;
+	padding: 0.625rem 1.25rem;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	cursor: pointer;
+	background: #617be3;
+	color: #fff;
+	border-radius: 100px;
+}
+@media screen and (max-width:800px){
+	.contenedor{
+		font-size: 14px;
+	}
+}
+@media screen and (max-width:700px){
+	.contenedor{
+		font-size: 12px;
+	}
+}
+@media screen and (max-width:600px){
+	.contenedor{
+		font-size: 10px;
+	}
+}
+@media screen and (max-width:500px){
+	.contenedor{
+		font-size: 6px;
+	}
+}
+@media screen and (max-width:400px){
+	.contenedor{
+		font-size: 4px;
+	}
+}
