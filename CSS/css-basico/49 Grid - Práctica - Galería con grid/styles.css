@@ -7,6 +7,7 @@ body {
     font-family: sans-serif;
     background-image: radial-gradient(circle, #b94bf8, #3a1957);
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .grid-item{
@@ -18,6 +19,7 @@ body {
 }
 
 .header{
+    background-color: crimson;
     grid-column: 1 / -1;
 }
 
@@ -32,10 +34,11 @@ body {
 }
 
 .gallery{
+    overflow: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(250px, 1fr));
     grid-gap: 5px;
-    padding: 1rem;
+    padding: .5rem;
     align-items: center;
     justify-content: center;
     grid-auto-flow: dense;

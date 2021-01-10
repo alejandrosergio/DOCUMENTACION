@@ -1,13 +1,18 @@
 /*
     Shorthands
+
         grid: (sin soporte total) 
             https://developer.mozilla.org/es/docs/Web/CSS/grid
+
         grid-template: 
             Engloba grid-template-columns, grid-template-rows y grid-template-areas
-        grid-gap:
+
+        gap:
             Engloba grid-column-gap y grid-row-gap
+
         grid-column: 
             Engloba grid-column-start y grid-column-end
+
         grid-row:
              Engloba grid-row-start y grid-row-end
 */
@@ -26,7 +31,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template: 100px 200px 150px / 300px 250px 150px
+    grid-template: 100px 200px 150px / 300px 250px 150px;
     /*grid-template: 
          "first first first" 100px
         "center center center" 200px
@@ -55,3 +60,6 @@ body {
 .grid-item:nth-child(7){
     background-color: limegreen;
 }
+
+/*grid track
+    es la union de celdas adyacentes horizontalmente de una de otra o en su defecto verticas*/

@@ -25,6 +25,7 @@ body {
         [fourth-column-line]
         100px
         [last-column-line];
+
     grid-template-rows:
         [first-row-line]
         100px
