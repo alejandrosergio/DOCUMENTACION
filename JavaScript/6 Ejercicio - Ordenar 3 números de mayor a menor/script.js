@@ -2,7 +2,7 @@
 
 
 /* SOLUCION DE SEEIK */
-
+/* 
 let numero  = 54;
 let numero2 = 54;
 let numero3 = 36;
@@ -54,7 +54,7 @@ else if (numero == numero2 && numero == numero3 && numero2 == numero3){
     console.log("Los Numeros son iguales");
 }else{
     console.log("BUG detectado, consulta con el programador");
-}
+} */
 
 /* SOLUCION DE DORIAN EJERCICIO DE EL */
 
