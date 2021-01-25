@@ -1,0 +1,15 @@
+{
+    "luis" : {
+
+        "nombre" :  "luis" ,
+        "apellido" : "zackusr" ,
+        "edad": 14
+    },
+
+    "miguel" : {
+
+        "nombre" : "miguel" ,
+        "apellido" :  "sanchez",
+        "edad": 23
+    }
+}
