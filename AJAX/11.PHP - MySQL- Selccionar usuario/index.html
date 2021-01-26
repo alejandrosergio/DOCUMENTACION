@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP - MySQL (Conexion a base de datos)</title>
+    <style type="text/css">
+
+        table{
+            width: 30%;
+            border-collapse: collapse;
+            box-shadow: 7px 7px 23px -4px rgba(0,0,0,0.75);
+        }
+
+        table,td,th{
+            text-align: center;
+            border: 1px solid #cccccc;
+            padding: 0.3125rem;
+        }
+        th{
+            text-align: left;
+        }
+        tr:nth-child(even){
+            background-color: #E8ECED;
+        }
+    
+    </style>
+</head>
+<body>
+    <select onchange="muestraUsuario(this.value)">
+        <option value="">Seleccionar Persona</option>
+        <option value="1">Beto</option>
+        <option value="2">Maria</option>
+        <option value="3">Katherine</option>
+        <option value="4">Sergio</option>
+        <option value="5">Juan</option>
+        <option value="6">Julian</option>
+        <option value="7">Brian</option>
+        <option value="8">Martes</option>
+    </select>
+    <div id="info"></div>
+    <script src="script.js"></script>
+</body>
+</html>
