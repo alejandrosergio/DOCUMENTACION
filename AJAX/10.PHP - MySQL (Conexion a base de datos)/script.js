@@ -1,23 +1,21 @@
 let resultado = document.getElementById("info");
 
-function mostrarUsuarios()
+function mostraUsuarios()
 {
-    alert("entro");
     let xmlhttp;
 
-    //Verificando el tipo de navagador con el que contamos
-    if(window.XMLHttpRequest){
+    if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
     }else{
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-        xmlhttp.onreadystatechange = function(){
-            if (xmlhttp.readyState === 4 && xmlhttp.status == 200){
-                resultado.innerHTML = this.responseText;
-            }   
-
-        xmlhttp.open("GET","servidor.php",true);
-        xmlhttp.send(); 
+    xmlhttp.onreadystatechange = function(){
+        if (this.readyState === 4 && this.status === 200) {
+            resultado.innerHTML = this.responseText;
+        }
     }
+
+    xmlhttp.open("GET","servidor.php",true);
+    xmlhttp.send();
 }
