@@ -2,6 +2,7 @@ let resultado = document.getElementById("info");
 
 function mostrarUsuarios()
 {
+    alert("entro");
     let xmlhttp;
 
     //Verificando el tipo de navagador con el que contamos
