@@ -8,16 +8,77 @@
     <style type="text/css">
 
         .miClase{
-            color: green;
+            color: rgb(53, 202, 195);
         }
 
+        button{
+            padding: 15px;
+            margin-left: 42%;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        div#overlay{
+            display: none;
+            z-index: 2;
+            background: #000000;;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            text-align: center;
+        }  
+
+        div#informacionDelUsuario{
+            display: block;
+            position: relative;
+            z-index: 3;
+            margin: 100px auto 0px auto;
+            width: 400px;
+            height: 250px;
+            background: #ffffff;
+            color: #000000;
+            border: 4px solid #cccccc;
+            font-size: 1.125rem;
+        }
+
+        div#wrapper{ 
+            position: absolute;
+            top: 40px;
+        }
+
+        #info{
+            padding: 20px;
+        }
+
+        #titulo{
+            width: 100%;
+            height: 12%;
+            background: #e9e9e9;;
+            padding: -20px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            padding-top: 15px;
+        }
     </style>
 </head>
 <body onload="mostrarClientes()">
     <form>
         Buscar Clientes: <input type="text" id="texto" placeholder="Ingresa Nombre" onkeyup="mostrarUsuario(this.value)"/>
     </form>
-    <div id="mostrar"></div>
+    <div id="wrapper">
+        <div id="mostrar"></div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="informacionDelUsuario">
+        <div id="titulo">Informacion Personal</div>
+        <p id="info"></p>
+        <button onclick="toggleOverlay(this)">Cerrar</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

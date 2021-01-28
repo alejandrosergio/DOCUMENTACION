@@ -11,7 +11,7 @@ if(!empty($nombre)){
 
 while($fila = mysqli_fetch_assoc($resultado)){
 
-    echo '<div class="miClase">' .$fila['nombre'] . '</div>';
+    echo '<div class="miClase" onclick="toggleOverlay(this)">' .$fila['nombre'] . '</div>';
     echo '<input type="hidden" value="'.$fila['correo'].'">';
 
     }
@@ -30,7 +30,7 @@ function mostrarUsuarios()
 
 while($fila = mysqli_fetch_assoc($resultado)){
 
-    echo '<div class="miClase">' .$fila['nombre'] . '</div>';
+    echo '<div class="miClase" onclick="toggleOverlay(this)">' .$fila['nombre'] . '</div>';
     echo '<input type="hidden" value="'.$fila['correo'].'">';
     }
         mysqli_close($con);
