@@ -1,0 +1,3 @@
+function ejecutarAJAX(){
+    alert("entro");
+}
