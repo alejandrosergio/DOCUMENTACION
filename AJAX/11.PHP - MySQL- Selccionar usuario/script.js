@@ -16,6 +16,8 @@ function muestraUsuario(usuarioSeleccionado)
         xmlhttp.onreadystatechange = function(){
             if (this.readyState === 4 && this.status === 200) {
                 resultado.innerHTML = this.responseText;
+            }else{
+                alert("error de servidor");
             }
         }
     }

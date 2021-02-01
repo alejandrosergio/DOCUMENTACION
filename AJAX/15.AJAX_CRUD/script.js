@@ -13,6 +13,8 @@ function mostrarUsuarios(){
     xmlhttp.onreadystatechange = function(){
         if (this.readyState == 400 && this.status === 200) {  
             resultado.innerHTML = xmlhttp.responseText;
+        }else{
+            alert("error de servidor");
         }
     }
     xmlhttp.open("GET","servidor.php?personas="+"personas",true);
