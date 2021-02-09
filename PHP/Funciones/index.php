@@ -9,8 +9,8 @@
 <body>
     <?php
 
-        /* $palabra="SERGIO";
-        $palabra2="katherine";
+        /*  $palabra="SERGIO";
+            $palabra2="katherine";
 
         echo(strtolower($palabra));
         echo(strtoupper($palabra2));
@@ -26,7 +26,7 @@
 
         /* function mayuscula($palabra){
 
-            $resultado = strtoupper($palabra);
+            $resultado = strtoupper($palabra); 
             return $resultado;
         }
 
@@ -34,7 +34,7 @@
 
         function primera($palabra){
 
-            $resultado = ucfirst($palabra);
+            $resultado = ucfirst($palabra); //Convierte en mayuscula la primera letra de cada frase
             return $resultado;
         }
         
@@ -77,18 +77,37 @@
 
         ///////////////////////////////            ///////////////////////////////
 
-        function cambia_mayus(&$param){
+        /* function cambia_mayus(&$param){
             $param=strtolower($param);
             $param=ucwords($param);
 
             return $param;
-        }
+        } 
 
         $cadena="HoLa MuNdO";
 
         echo($cadena . "</br>");
         echo (cambia_mayus($cadena) . "</br>");
-        echo($cadena . "</br>");
+        echo($cadena . "</br>");*/
+
+        function calculadora($num1,$num2,$operador){
+
+            $resultado=null;
+
+            if ($operador == "+") {
+                echo "Operacion es Suma: ". $resultado = $num1+$num2;
+            }elseif ($operador == "-") {
+                echo "Operacion es Resta: ". $resultado = $num1-$num2;
+            }elseif ($operador == "x") {
+                echo "Operacion es Multiplicacion: ". $resultado = $num1*$num2;
+            }elseif ($operador == "/") {
+                echo "Operacion es Divicion: ". $resultado = $num1/$num2;
+            }else {
+                echo "Numero u Operador incorrecto";
+            }
+            return $resultado;
+        }
+            calculadora(20,30,"p");
     ?>
 </body>
 </html>

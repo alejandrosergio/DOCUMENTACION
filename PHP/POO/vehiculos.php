@@ -46,14 +46,17 @@
         }
 
         /* INSTANCIAS */
-        /* $renault = new Coche();
+        
+        /* 
+        $renault = new Coche();
         $mazda = new Coche();
         $ferrari = new Coche();
 
         $mazda -> girar();
         echo $mazda->ruedas;
         echo $mazda->marca;
-        $renault->establece_color("Rojo","renault"); */
+        $renault->establece_color("Rojo","renault"); 
+        */
 
         /* Reutilizar Codigo */
         
