@@ -1,0 +1,17 @@
+[
+    {
+        "nombre":"Juan",
+        "puesto": "programador",
+        "edad": 22
+    },
+    {
+        "nombre":"lucya",
+        "puesto": "medyco",
+        "edad": 34
+    },
+    {
+        "nombre":"seeyk",
+        "puesto": "holaMundo",
+        "edad": 20
+    }
+]

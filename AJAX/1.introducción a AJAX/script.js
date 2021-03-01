@@ -2,13 +2,13 @@
 
 function ejecutarAJAX()
 {
-    /* var ajaxRequest;  //Variable donde se almacenaran los datos.
+    var ajaxRequest;  //Variable donde se almacenaran los datos.
 
     if(window.XMLHttpRequest){  //verificando si el navegador esta actualizado a la epoca
         ajaxRequest = new XMLHttpRequest();  //Nuevos navegadores
     }else{
         ajaxRequest = new ActiveXObject("Microsoft.XMLHTPP");  //Navegadores arcaicos
-    } */
+    }
 
     /* 
         PETICIONES DE PROCESO
