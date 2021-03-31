@@ -14,7 +14,7 @@ var hora = document.querySelector('#Hora');
 var hora2 = document.querySelector('#hora2');
 
 function muestraHora(){
-    hora2.innerHTML = hora3 + " PM";
+    hora2.innerHTML = hora3;
 }
 
 setTimeout(muestraHora,1000);
