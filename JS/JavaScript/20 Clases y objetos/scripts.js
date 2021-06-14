@@ -32,7 +32,7 @@ class Book{
     }
 
     bookInfo(){
-        return `${title} es un libro de ${gender} escrit por el author ${author} en el año ${year}`;
+        return `${title} es un libro de ${gender} escrito por el author ${author} en el año ${year}`;
     }
 
 }
@@ -42,25 +42,26 @@ let iterador = 1;
 
 while(books.length < 3){
 
-    let title = prompt(`Introduce el titulo del libro ${iterador} :`).toLowerCase().trim();
+    let title = prompt(`Introduce el titulo del libro ${iterador} :`).toLowerCase().trim(); // Pasar a minuscilas y borrar espacios
     let author = prompt(`Introduce el author del libro ${iterador} :`).toLowerCase().trim();
     let year = prompt(`Introduce el año del libro ${iterador} :`);
     let gender = prompt(`Introduce el genero del libro ${iterador} :`).toLowerCase().trim();
 
         if (title != '' &&
             author != '' &&
-            !isNaN(year) &&
+            !isNaN(year) && 
             year.length == 4 &&
             (gender == 'aventura' ||
             gender == 'terror' ||
             gender == 'fantasia')) {
-                iterador++;
+            iterador++;
                 
             books.push(new Book(title,author,year,gender));
-
+            
         }else{
             alert("datos incorrectos, intentalo de nuevo");
         }
+        
 }
 
 const showAllBooks = () => {
@@ -85,12 +86,8 @@ const showGender = () => {
             console.log(book.bookInfo())
         }
     }
-
-    console.log(authors.sort());
 }
 
 showAllBooks();
 showAuthors();
 showGender();
-
-
