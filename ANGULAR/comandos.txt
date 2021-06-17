@@ -1,6 +1,0 @@
-COMANDOS PARA MIRAR VERSIONES
-
-Node JS: node -v
-TypeScript: tsc --version
-Angular: ng v || ng -v
-Ionic: ionic -v
