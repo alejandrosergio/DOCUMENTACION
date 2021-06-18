@@ -5,7 +5,7 @@
 // EXPORTACIONES E IMPORTACIONES
 
     // Importacion tradicional -> CMD . IMPORT
-    import { calculaISV, Productos } from "./08-desestructuracion-function";
+    import { calculaISV, Productos } from "./06-desestructuracion-function";
 
     const carritoCompra: Productos[] = [
         {
