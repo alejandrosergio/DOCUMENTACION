@@ -5,6 +5,14 @@ html,body{
 #sidebar{
     height: 100%;
     min-height: 100vh;
-    min-width: 15%;
+    min-width: 15em;
     text-align: center;
+}
+
+h3{
+    font-size: 1.625rem;
+}
+
+.item{
+    margin-top: .75em;
 }
