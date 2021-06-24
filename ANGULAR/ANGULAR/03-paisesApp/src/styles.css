@@ -5,5 +5,9 @@
 }
 
 .small-flag{
-    width: 50px;
+    width: 65px;
+}
+
+.mr-1{
+    margin: 5px;
 }
