@@ -1,13 +1,8 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+
+.small-flag {
+    width: 50px;
 }
 
-.small-flag{
-    width: 65px;
-}
-
-.mr-1{
-    margin: 5px;
+.mr-1 {
+    margin-right: 5px;
 }
