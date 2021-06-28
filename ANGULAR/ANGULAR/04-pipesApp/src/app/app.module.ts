@@ -3,12 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
+// Modulo personalizado de PrimeNg
+import { SharedModule } from './shared/shared.module';
+import { MenubarModule } from 'primeng/menubar';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SharedModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
