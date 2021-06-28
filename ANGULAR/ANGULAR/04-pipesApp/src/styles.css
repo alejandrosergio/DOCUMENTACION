@@ -1,11 +1,12 @@
-html,
-body
-{
+
+html, body {
     margin: 10px;
-    background-color: var(--surface-b);
-    font-family: var(--font-family);
+    background-color: var( --surface-b );
+    font-family: var( --font-family );
 }
 
-.text-layout{
+.text-layout {
     color: var(--text-color);
 }
+
+
