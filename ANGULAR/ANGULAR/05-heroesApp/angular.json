@@ -128,6 +128,6 @@
   },
   "defaultProject": "heroesApp",
   "cli": {
-    "analytics": false
+    "analytics": "8f076fc3-010d-46cb-85a5-efbbc3c9d86d"
   }
 }

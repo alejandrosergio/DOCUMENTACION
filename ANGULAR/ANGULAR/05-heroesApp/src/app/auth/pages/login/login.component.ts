@@ -5,22 +5,31 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: []
+  styles: [
+  ]
 })
-export class LoginComponent {
+export class LoginComponent{
 
-  constructor( 
-    private router: Router,
-    private authService: AuthService
-    ) { }
+  constructor( private router: Router,
+               private authService: AuthService ) { }
 
-  login(){
+  login() {
 
+    // Ir al backend
+    // un usuario
     this.authService.login()
-    .subscribe( resp => {
-      if ( resp.id ) {
-        this.router.navigate(['./heroes']);
-      }
-    });
+      .subscribe( resp => {
+        console.log(resp);
+
+        if ( resp.id ) {
+          this.router.navigate(['./heroes']);
+        }
+      })
   }
+
+  ingresarSinLogin() {
+    this.authService.logout();
+    this.router.navigate(['./heroes']);
+  }
+
 }
