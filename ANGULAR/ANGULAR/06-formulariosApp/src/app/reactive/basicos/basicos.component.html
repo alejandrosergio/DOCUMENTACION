@@ -1,1 +1,98 @@
-<p>basicos works!</p>
+<hr>
+<h2>Reactivo: Básicos...</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+            <!-- Campo de producto -->
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Producto:</label>
+                <div class="col-sm-10">
+                    <input 
+                        class="form-control"
+                        type="text"
+                        placeholder="Nombre del producto"
+                        formControlName="nombre"
+                    >
+                    <span 
+                        class="form-text text-danger"
+                        *ngIf="campoEsValido('nombre')"
+                    > 
+                        Debe tener 3 caracteres
+                    </span>
+                </div>
+            </div>
+            <!-- Campo de producto -->
+
+            <!-- Campo de precio -->
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Precio:</label>
+                <div class="col-sm-10">
+                    <input 
+                        class="form-control"
+                        type="number"
+                        placeholder="Precio del producto"
+                        formControlName="precio"
+                    >
+                    <span 
+                        class="form-text text-danger"
+                        *ngIf="campoEsValido('precio')"
+                    >
+                        El valor debe ser 100$ como minimo
+                    </span>
+                </div>
+            </div>
+            <!-- Campo de precio -->
+
+            <!-- Campo de existencias -->
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Existencias:</label>
+                <div class="col-sm-10">
+                    <input 
+                        class="form-control"
+                        type="number"
+                        placeholder="Existencia del producto"
+                        formControlName="existencia"
+                    >
+                    <span 
+                        class="form-text text-danger"
+                        *ngIf="campoEsValido('existencia')"
+                    >
+                        La existencia debe ser 20 como minimo
+                    </span>
+                </div>
+            </div>
+            <!-- Campo de existencias -->
+
+            <!-- BUTTON -->
+            <div class="row">
+                <div class="col">
+                    <button
+                        class="btn btn-outline-primary float-end mt-3"
+                        type="submit"
+                    >
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col">
+        <span>valid</span>
+        <pre> {{ miFormulario.valid }} </pre>
+        <span>Pristine</span>
+        <pre> {{ miFormulario.pristine }} </pre>
+        <span>Toched</span>
+        <pre> {{ miFormulario.touched }} </pre>
+        <span>value</span>
+        <pre> {{ miFormulario.value | json }} </pre>
+        <span>Precio</span>
+        <pre> {{ miFormulario.controls.precio.errors | json }} </pre>
+    </div>
+</div>
