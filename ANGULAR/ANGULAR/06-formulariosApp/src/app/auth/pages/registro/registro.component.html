@@ -1,0 +1,112 @@
+<hr>
+<h2>Validaciones Reactivas</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="createAccount()">
+
+            <!-- Nombre -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Name and las-tname: </label>
+                <div class="col-sm-9">
+                    <input 
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre de usuario"
+                    formControlName="nombre"
+                    >
+                    <span 
+                        class="form-text text-danger"
+                        *ngIf="campoNoValido('nombre')"
+                    >
+                        Debe de ser en formato de nombre y apellido
+                    </span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Email: </label>
+                <div class="col-sm-9">
+                    <input 
+                    type="email"
+                    class="form-control"
+                    placeholder="Email de usuario"
+                    formControlName="email"
+                    >
+                    <span 
+                            class="form-text text-danger"
+                            *ngIf="campoNoValido('email')"
+                        >
+                            EL correo es obligatorio
+                    </span>
+                </div>
+            </div>
+
+            <!-- UserName -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">UserName: </label>
+                <div class="col-sm-9">
+                    <input 
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre código del usuario"
+                    formControlName="username"
+                    >
+                    <span 
+                            class="form-text text-danger"
+                            *ngIf="campoNoValido('username')"
+                        >
+                            El UserName no puede ser username
+                    </span>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Password: </label>
+                <div class="col-sm-9">
+                    <input 
+                    type="password"
+                    class="form-control"
+                    placeholder="Contraseña de la cuenta"
+                    >
+                </div>
+            </div>
+
+            <!-- Password-2 -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Confirm Password: </label>
+                <div class="col-sm-9">
+                    <input 
+                    type="password"
+                    class="form-control"
+                    placeholder="Confirma la contraseña de la cuenta"
+                    >
+                </div>
+            </div>
+
+            <!-- BUTTON - CREATE ACCOUNT -->
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-outline-success mt-5 float-end">
+                        CREATE ACCONUT
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<h4>Form Valid: {{ miFormulario.valid }}</h4>
+<br>
+<h5>Nombre errors</h5>
+<pre>{{ miFormulario.controls.nombre.errors | json }}</pre>
+<br>
+<h5>Email errors</h5>
+<pre>{{ miFormulario.controls.email.errors | json }}</pre>
+<br>
+<h5>UserName</h5>
+<pre>{{ miFormulario.controls.username.errors | json }}</pre>

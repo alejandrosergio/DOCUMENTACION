@@ -1,4 +1,4 @@
-<hr >
+<hr>
 <h2>Template Form</h2>
 <hr>
 <ul class="list-group">
@@ -21,6 +21,22 @@
 
     <li 
         *ngFor="let link of reactiveMenu"
+        class="list-group-item"
+        [routerLink]="link.ruta"
+        routerLinkActive="active"
+    >
+        {{ link.texto }}
+    </li>
+
+</ul>
+
+<hr class="mt-5">
+<h2>Validaciones Form</h2>
+<hr>
+<ul class="list-group">
+
+    <li 
+        *ngFor="let link of authMenu"
         class="list-group-item"
         [routerLink]="link.ruta"
         routerLinkActive="active"
