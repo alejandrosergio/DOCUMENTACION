@@ -30,8 +30,22 @@ export class RegistroComponent implements OnInit {
       '',
       [
         Validators.required, this.vs.noPuedeSerEsteUser
-      ]
+      ],
+    ],
+    password: [
+      '',
+      [
+        Validators.required, Validators.minLength(6)
+      ],
+    ],
+    password2: [
+      '',
+      [
+        Validators.required
+      ],
     ]
+  } , {
+    Validators: [ this.vs.camposIguales('password', 'password2') ]  
   });
 
   constructor( 
