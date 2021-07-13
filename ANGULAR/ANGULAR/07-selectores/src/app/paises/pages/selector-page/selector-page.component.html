@@ -1,0 +1,87 @@
+<h1 class="mt-5">Selectores Anidados</h1>
+<hr>
+
+<form [formGroup]="miFormulario" (ngSubmit)="Seleccionar">
+
+    <!-- REGIONES -->
+    <div class="row mt-3">
+        <div class="col">
+            <label class="form-label">Continente: </label>
+            <select 
+                class="form-control"
+                formControlName="region"
+            >
+                <option value="">-- Sleccione Contiente --</option>
+                <option 
+                    *ngFor="let region of regiones"
+                    [value]="region | lowercase"
+                >
+                    {{ region }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <!-- PAISES  -->
+    <div class="row mt-4" *ngIf="paises.length > 0">
+        <div class="col">
+            <label class="form-label">País: </label>
+            <select 
+                class="form-control"
+                formControlName="pais"
+            >
+                <option value="">-- Sleccione País --</option>
+                <option 
+                    *ngFor="let pais of paises"
+                    [value]="pais.alpha3Code"
+                >
+                    {{ pais.name }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <!-- FRONTERAS -->
+    <div class="row mt-4" *ngIf="fronteras.length > 0">
+        <div class="col">
+            <label class="form-label">Frontera: </label>
+            <select 
+                class="form-control"
+                formControlName="frontera"
+            >
+                <option value="">-- Sleccione el país fronterizo --</option>
+                <option 
+                    *ngFor="let frontera of fronteras"
+                    [value]="frontera.alpha3Code"
+                >
+                    {{ frontera.name }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-3" *ngIf="cargando">
+        <div class="col">
+            <div class="alert alert-primary">
+                Cargando...
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <button 
+                type="submit" 
+                class="btn btn-outline-primary float-end mt-5"
+                [disabled]="miFormulario.invalid"
+            >
+                Seleccionar
+            </button>
+        </div>
+    </div>
+</form>
+
+<h3>Formulario</h3>
+<pre>Valid: {{ miFormulario.valid }}</pre>
+<pre>{{ miFormulario.value | json }}</pre>
