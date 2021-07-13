@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ValidatorsService } from '../../../shared/validators/validators.service';
+import { EmailValidatorsService } from '../../../shared/validators/email-validators.service';
 
 
 
@@ -24,6 +25,9 @@ export class RegistroComponent implements OnInit {
       '',
       [
         Validators.required, Validators.pattern( this.vs.emailPattern )
+      ],
+      [
+        this.ve
       ]
     ],
     username: [
@@ -45,19 +49,37 @@ export class RegistroComponent implements OnInit {
       ],
     ]
   } , {
-    Validators: [ this.vs.camposIguales('password', 'password2') ]  
+    validators: [ this.vs.camposIguales('password', 'password2') ]  
   });
+
+
+  get emailErrorMsg(): string {
+
+    const errors = this.miFormulario.get('email')?.errors;
+
+    if ( errors?.required ) {
+      return 'El campo es obligatorio'
+    }else if ( errors?.pattern ) {
+      return 'El campo debe tener formato de correo'
+    }else if ( errors?.emailTomado ) {
+      return 'El correo ya esta en uso'
+    }
+    return '';
+  }
 
   constructor( 
     private fb: FormBuilder,
-    private vs: ValidatorsService
+    private vs: ValidatorsService,
+    private ve: EmailValidatorsService
     ) { }
 
   ngOnInit(): void {
     this.miFormulario.reset({
       nombre: 'Alejandro Seeik',
-      email: 'test@test.com',
-      username: 'usuario'
+      email: 'test1@test.com',
+      username: 'usuario',
+      password: '123456',
+      password2: '123456'
     });
   }
 
@@ -72,6 +94,8 @@ export class RegistroComponent implements OnInit {
       this.miFormulario.markAllAsTouched();
       return;
     }
+    alert('Formulario enviado con exito');
+    this.miFormulario.reset();
   }
 
 }

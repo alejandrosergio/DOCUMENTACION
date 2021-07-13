@@ -36,10 +36,10 @@
                     formControlName="email"
                     >
                     <span 
-                            class="form-text text-danger"
-                            *ngIf="campoNoValido('email')"
-                        >
-                            EL correo es obligatorio
+                        class="form-text text-danger"
+                        *ngIf="campoNoValido('email')"
+                    >
+                        {{ emailErrorMsg }}
                     </span>
                 </div>
             </div>
@@ -104,7 +104,11 @@
             <!-- BUTTON - CREATE ACCOUNT -->
             <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-outline-success mt-5 float-end">
+                    <button 
+                    type="submit" 
+                    class="btn btn-outline-success mt-5 float-end"
+                    [disabled]="miFormulario.pending"
+                    >
                         CREATE ACCONUT
                     </button>
                 </div>
@@ -115,6 +119,8 @@
 </div>
 
 <h4>Form Valid: {{ miFormulario.valid }}</h4>
+<h4>Form status: {{ miFormulario.status }}</h4>
+<h4>Form pending: {{ miFormulario.pending }}</h4>
 <h4>Form errors: {{ miFormulario.errors | json }}</h4>
 <br>
 <h5>Nombre errors</h5>
