@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+html,body {
+    height: 100%;
+    width: 100%;
+    user-select: none;
+}
+
+app-menu {
+    position: fixed;
+    top: 1.25rem;
+    left: 1.25rem;
+    z-index: 99999;
+}
