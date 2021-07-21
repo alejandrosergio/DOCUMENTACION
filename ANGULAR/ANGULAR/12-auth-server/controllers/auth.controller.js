@@ -1,4 +1,4 @@
-// Obtener el tipado de express en la respuesta
+// Importamos - Obtener el tipado de express en la respuesta
 const { response } = require('express');
 
 
@@ -9,7 +9,6 @@ const { response } = require('express');
 const crearUsuario  = (req , res = response) => {
 
     const { name, email, password } = req.body;
-    console.log( name, email, password );
 
     return res.json({
         ok: true,
@@ -23,7 +22,6 @@ const crearUsuario  = (req , res = response) => {
 const loginUsuario  = (req , res = response) => {
 
     const { email, password } = req.body;
-    console.log( email, password );
 
     return res.json({
         ok: true,
