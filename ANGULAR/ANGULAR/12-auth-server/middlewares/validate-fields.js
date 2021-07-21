@@ -1,3 +1,5 @@
+'use strict';
+
 // Importamos - Obtener el tipado de express en la respuesta
 const { response } = require('express');
 
