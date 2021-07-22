@@ -1,0 +1,16 @@
+<h1>Dashboard</h1>
+<hr>
+<p>Esta página solo funciona si estas autenticado</p>
+<br>
+<hr>
+<h2>User Info</h2>
+<pre>{{ usuario | json }}</pre>
+<hr>
+<br><br>
+    <button 
+        class="glow-on-hover" 
+        type="button"
+        (click)="logout()"
+    >
+        LOGOUT ->
+    </button>
