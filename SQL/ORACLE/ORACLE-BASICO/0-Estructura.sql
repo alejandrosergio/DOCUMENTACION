@@ -13,7 +13,7 @@ BEGIN
 -- Inicio de una sentencia
 
 
-
+    -- Oracle es case sensiti -- sencible a mayusculas y minusculas
 
 
 END;
