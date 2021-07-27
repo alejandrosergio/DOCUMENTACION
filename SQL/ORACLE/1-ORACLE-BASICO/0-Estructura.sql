@@ -16,5 +16,5 @@ BEGIN
     -- Oracle es case sensiti -- sencible a mayusculas y minusculas
 
 
-END;
--- Final de una sentencia
+END; -- Final de una sentencia
+/

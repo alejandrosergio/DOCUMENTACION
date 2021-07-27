@@ -27,3 +27,4 @@ BEGIN
     dbms_output.put_line('Total a pagar: ' || NVL(totalPagar,0));
 
 END;
+/

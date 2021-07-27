@@ -16,5 +16,5 @@ dbms_output.put_line('Hello Word of Oracle');
 dbms_output.put_line('Alejandro');
 dbms_output.put_line('Software Developer');
 
-END;
--- Final de una sentencia
+END; -- Final de una sentencia
+/

@@ -46,5 +46,5 @@ BEGIN
 
     dbms_output.put_line( notas(4) );
 
-END;
--- Final de una sentencia
+END;-- Final de una sentencia
+/

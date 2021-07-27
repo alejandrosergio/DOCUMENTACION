@@ -29,5 +29,5 @@ BEGIN
     dbms_output.put_line('Area: ' || round( area, 2 ) || 'cm2'); -- Redondear a 2 decimales
     dbms_output.put_line('Area: ' || round( area ) || 'cm2'); -- Redondear a 2 decimales
 
-END;
--- Final de una sentencia
+END; -- Final de una sentencia
+/ 

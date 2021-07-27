@@ -35,5 +35,5 @@ BEGIN
     dbms_output.put_line('Usuario: ' || usuario);
     dbms_output.put_line('Cantidad: ' || cantidad); 
 
-END;
--- Final de una sentencia
+END; -- Final de una sentencia
+/

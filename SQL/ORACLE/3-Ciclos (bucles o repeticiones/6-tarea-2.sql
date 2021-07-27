@@ -23,3 +23,4 @@ BEGIN
     dbms_output.put_line('El factorial de ' || numero || ' es: ' || factorial );
 
 END;
+/

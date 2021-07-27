@@ -29,5 +29,5 @@ BEGIN
     dbms_output.put_line('Activo: ' || case when activo then 'si' else 'no' end ); -- CONDICIÓN IF ELSE
 
 
-END;
---Final de una sentencia
+END; -- Final de una sentencia
+/ 

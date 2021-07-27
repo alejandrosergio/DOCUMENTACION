@@ -48,5 +48,5 @@ BEGIN
     -- MAS
     dbms_output.put_line('NVL: ' || NVL(nombre2,'Variable null')); -- Si la variable es nula mandamos un mensaje
 
-END;
--- Final de una sentencia
+END;-- Final de una sentencia
+/

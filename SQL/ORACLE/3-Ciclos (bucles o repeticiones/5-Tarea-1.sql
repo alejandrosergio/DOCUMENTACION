@@ -24,3 +24,4 @@ BEGIN -- Sentencia PL para ejecutar la logica del programa
     dbms_output.put_line('El promedio es: ' || promedio ); -- Imprimimos por consola el resultado
 
 END; -- Final de la sentencia -- Logica del programa
+/
