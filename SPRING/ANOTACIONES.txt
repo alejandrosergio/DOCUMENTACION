@@ -1,0 +1,19 @@
+ANOTACIONES
+
+-----------------------------------
+
+@SpringBootApplication -> es una anotación que ejecuta tres anotaciones de autoconfiguración con sus valores por defecto: @EnableAutoConfiguration. @ComponentScan. @Configuration.
+
+-----------------------------------
+
+@RestController : es añadida a partir de Spring 4.0 esto mejora la creación de RESTful web services y simplifica el uso de las anotaciones @Controller y @ResponseBody. @Controller en un @Component especial mientras @RestController es un @Controller especial.
+
+-----------------------------------
+
+@GetMapping : es una anotación de Spring Framework que aparece con Spring 4.3 y nos permite simplificar el manejo de los diferentes métodos de Spring MVC y los @RequestMappings que a veces se hacen un poco pesados. A partir de ahora nosotros podemos usar estas anotaciones y simplificar el código
+
+-----------------------------------
+
+
+
+-----------------------------------
