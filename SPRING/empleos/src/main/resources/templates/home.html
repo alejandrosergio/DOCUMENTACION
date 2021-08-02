@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- Para poder trabajar con thymeleaf -->
+<head>
+<meta charset="UTF-8">
+<title>Pagina Principal</title>
+</head>
+<body>
+	<h1 th:text="${mensaje}"></h1> <!-- para renderizar texto dinamico del controlador -->
+	<h2>Hoy es: [[${fecha}]]</h2> <!-- Otra forma de renderizar un atributo que llega del controlador -->
+</body>
+</html>

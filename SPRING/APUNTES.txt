@@ -1,1 +1,10 @@
+--//////////////////////////////////////////////////////////////////////--
+
 Cambiar puerto de ejecución -> SERVER.PORT=7070
+
+--//////////////////////////////////////////////////////////////////////--
+
+Thymeleaf -> Thymeleaf es una biblioteca Java que implementa un motor de plantillas de XML/XHTML/HTML5 (también extensible a otros formatos) que puede ser utilizado tanto en modo web como en otros entornos no web. ... Thymeleaf también puede extenderse desarrollando tus propios dialectos.
+
+--//////////////////////////////////////////////////////////////////////--
+
