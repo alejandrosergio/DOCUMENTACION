@@ -5,7 +5,21 @@
 <title>Pagina Principal</title>
 </head>
 <body>
-	<h1 th:text="${mensaje}"></h1> <!-- para renderizar texto dinamico del controlador -->
-	<h2>Hoy es: [[${fecha}]]</h2> <!-- Otra forma de renderizar un atributo que llega del controlador -->
+
+<!-- 
+	<h1 th:text="${mensaje}"></h1>
+	<h2>Hoy es: [[${fecha}]]</h2> 
+-->
+
+ <h1>Bienvenido a EmpleosAPP</h1>
+ <hr>
+ <h2>Oferta de trabajo</h2>
+ <h3 th:text=" 'Puesto: ' + ${nombre} "></h3>
+ <h3 th:text=" 'Fecha Publicación: ' + ${fecha} "></h3>
+ <h3 th:text=" 'Salario Ofrecido: ' + ${salario} "></h3>
+ <h3 th:text=" 'Oferta Vigente: ' + ${vigente} "></h3>
+ 
+
+
 </body>
 </html>
