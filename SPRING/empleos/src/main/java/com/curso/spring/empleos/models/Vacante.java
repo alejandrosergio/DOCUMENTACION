@@ -9,6 +9,9 @@ public class Vacante {
 	private String  descripcion;
 	private Date    fecha;
 	private Double  salario;
+	private Integer destacado;
+	private String  imagen= "no-imagen.png";
+	
 	
 	// SETTER'S
 	
@@ -30,6 +33,14 @@ public class Vacante {
 	
 	public void setSalario(Double salario) {
 		this.salario = salario;
+	}
+	
+	public void setDestacado(Integer destacado) {
+		this.destacado = destacado;
+	}
+	
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 	
 	
@@ -55,11 +66,21 @@ public class Vacante {
 		return salario;
 	}
 
+	public Integer getDestacado() {
+		return destacado;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+	
+	
+
 	@Override
 	public String toString() {
 		return "Vacante [ID=" + ID + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
-				+ ", salario=" + salario + "]";
+				+ ", salario=" + salario + ", destacado=" + destacado + ", imagen=" + imagen + "]";
 	}
-	
+
 
 }

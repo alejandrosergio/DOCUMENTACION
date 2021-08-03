@@ -109,6 +109,8 @@ public class HomeController {
 			vacante1.setDescripcion("Solicitamos ing. civil para diseñar puente peatonal.");
 			vacante1.setFecha( sdf.parse("10-02-2021") );
 			vacante1.setSalario(8500.0);
+			vacante1.setDestacado(1);
+			vacante1.setImagen("empresa1.png");
 			
 			// OFERTA TRABAJO 2
 			Vacante vacante2 = new Vacante();
@@ -118,6 +120,8 @@ public class HomeController {
 			vacante2.setDescripcion("Empresa importante solicita contador con 5 años de experiencia titulado.");
 			vacante2.setFecha( sdf.parse("11-03-2021") );
 			vacante2.setSalario(12000.0);
+			vacante2.setDestacado(0);
+			vacante2.setImagen("empresa2.png");
 			
 			// OFERTA TRABAJO 3
 			Vacante vacante3 = new Vacante();
@@ -127,6 +131,7 @@ public class HomeController {
 			vacante3.setDescripcion("Empresa importante solicita ingeniero mecánico para mantenimiento de la instalación eléctrica.");
 			vacante3.setFecha( sdf.parse("12-04-2021") );
 			vacante3.setSalario(10500.0);
+			vacante3.setDestacado(0);
 			
 			// OFERTA TRABAJO 1
 			Vacante vacante4 = new Vacante();
@@ -136,6 +141,8 @@ public class HomeController {
 			vacante4.setDescripcion("Solicitamos Diseñador Gráfico titulado para el diseño y publicidad de la empresa.");
 			vacante4.setFecha( sdf.parse("13-05-2021") );
 			vacante4.setSalario(7500.0);
+			vacante4.setDestacado(1);
+			vacante4.setImagen("empresa4.png");
 			
 			
 			// AGREGAMOS LAS VACANTES A LA LISTA

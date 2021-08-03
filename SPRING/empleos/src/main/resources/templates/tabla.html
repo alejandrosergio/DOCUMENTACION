@@ -4,36 +4,45 @@
 <meta charset="UTF-8">
 <title>Listado de vacantes</title>
 
-<style type="text/css">
-	h1,table {
-		text-align: center;
-	}
-</style>
+<!-- STYLES CSS -->
+<link th:href="@{/CSS/style.css}" rel="stylesheet">
 
 <!-- BOOTSTRAP -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
+
 <body class="container">
+
+	<img alt="imagen vacantes" th:src="@{/IMG/logo.png}" width="136" height="136">
 	
-	<br>
 	<h1 class="text-primary">Listado de Vacantes</h1>
 	<hr class="text-primary">
  	
  	<table class="table table-striped table-hover table-bordered">
  		<tr>
- 			<th scope="col">ID Oferta</th>
+ 			<th scope="col">Logo</th>
+ 			<th scope="col">ID Empresa</th>
  			<th scope="col">Nombre Oferta</th>
  			<th scope="col">Fecha Publicación</th>
  			<th scope="col">Salario Ofrecido</th>
- 			<th scope="col">Descripción Oferta</th>
+ 			<th scope="col">Descripción Vacante</th>
+ 			<th scope="col">Destacado</th>
  		</tr>
  		<tr th:each="vacante: ${vacantes}">
+ 			<td>
+ 				<img alt="imagen vacantes" th:src="@{/IMG/{img} (img=${vacante.imagen}) }" width="136" height="136">
+ 			</td>
  			<td th:text="${vacante.id}"></td>
  			<td th:text="${vacante.nombre}"></td>
  			<td th:text="${vacante.fecha}"></td>
  			<td th:text="${vacante.salario}"></td>
  			<td th:text="${vacante.descripcion}"></td>
+ 			<!--<td th:text="${vacante.destacado == 1} ? 'SI' : 'NO' "></td>--> <!-- CONDICIONAL TERNARIO -->
+ 			<td>
+ 				<span class="badge bg-success" th:if="${vacante.destacado == 1}">SI</span>
+ 				<span class="badge bg-danger"  th:unless="${vacante.destacado == 1}">NO</span>
+ 			</td> 
  		</tr>
  	</table>
  	

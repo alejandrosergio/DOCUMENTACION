@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing:  border-box;
+	user-select: none;
+}
+
+h1,table{
+	text-align: center;
+}
+
+
+hr{
+	padding: .2em;
+}
