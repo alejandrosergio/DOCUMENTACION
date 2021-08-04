@@ -17,30 +17,7 @@
 
   <body>
 
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-        <a class="navbar-brand" href="#">EmpleosApp</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Menu 1</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Menu 2</a>
-            </li>          
-          </ul>  
-          <a class="btn btn-primary" href="#">Ingresar</a>&nbsp;
-          <a class="btn btn-primary" href="#">Registrarse</a>
-        </div>
-      </nav>
-    </header>
+    <header th:insert="fragments/menu :: menu-principal"></header>
 
     <main role="main">
 
@@ -77,7 +54,7 @@
             <h6 class="card-title"><strong>Categoría:</strong> <span th:text="${vacante.id}"></span></h6>
             <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${vacante.fecha}"></span></h6>                
             <p th:text="${vacante.descripcion}"></p>
-            <p><a class="btn btn-outline-primary" href="#" role="button">Ver detalle</a></p>            
+            <p><a th:href="@{/vacantes/view/{id} (id=${vacante.id}) }" class="btn btn-outline-primary">Ver detalle</a></p>            
           </div>
         </div>
 		  <hr>	
@@ -85,14 +62,7 @@
 
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>
-          &copy; 2021 EmpleosApp, Inc. | WebApp Desarrollada con Spring Boot 2.1.2 | Autor: AlejandroSeeik | &middot; <a href="#">Privacy</a>
-          &middot; <a href="#">Terms</a>
-        </p>
-      </div>
-    </footer>
+    <footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

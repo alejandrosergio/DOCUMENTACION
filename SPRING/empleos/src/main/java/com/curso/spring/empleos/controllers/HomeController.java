@@ -1,6 +1,5 @@
 package com.curso.spring.empleos.controllers;
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -63,10 +62,7 @@ public class HomeController {
 		Vacante vacante = new Vacante(); // Creamos una variable de tipo Vacante: MODELO - CONTROLADOR
 
 		// Establecemos los vaolres de la vacante
-		vacante.setNombre("Ingeniero de comunicaciones");
-		vacante.setDescripcion("Se solicita ingeniero para dar soporte a intranet");
-		vacante.setFecha(new Date());
-		vacante.setSalario(9700.0);
+		
 
 		// AGREGAMOS LA VACANTE AL CONTROLADOR - VISTA
 		model.addAttribute("vacante", vacante);

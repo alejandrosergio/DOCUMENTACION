@@ -1,22 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Detalle de la vacante</title>
-</head>
-<body>
-	
-	<h1>Detalle de la oferta de trabajo</h1>
-	<hr>
-	<h3>Logo Empresa</h3>
-	<img alt="imagen vacantes" th:src="@{/IMG/{img} (img=${vacante.imagen}) }" width="200" height="200">
-	<h3 th:text="'ID: ' + ${vacante.id}"></h3>
-	<h3 th:text="'Nombre: ' + ${vacante.nombre}"></h3>
-	<h3 th:text="'Fecha publicación: ' + ${vacante.fecha}"></h3>
-	<h3 th:text="'Salario ofrecido: ' + ${vacante.salario}"></h3>
-	<h3 th:text="'Descripcion: ' + ${vacante.descripcion}"></h3>
-	<h3 th:text="${vacante.destacado == 1} ? 'Oferta destacada: SI' : 'Oferta destacada: NO' "></h3>  <!-- CONDICIONAL TERNARIO -->	
-	
-	
-</body>
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>EmpleosApp | Detalles de la Oferta de Trabajo</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header th:insert="fragments/menu :: menu-principal"></header>
+
+    <main role="main">
+      <hr>
+      <div class="container"> 
+
+        <div class="row">
+          <div class="col-md-3">            
+            <img class="rounded mx-auto d-block" th:src="@{/images/{img}(img=${vacante.imagen}) }" alt="Generic placeholder image" width="220" height="220">            
+          </div>
+          <div class="col-md-9">
+            <div class="card">
+              <h4 class="card-header">Aplicar para <strong th:text="${vacante.nombre}"></strong></h4>              
+              <div class="card-body">
+                <h5 class="card-title"><strong>Categoría: </strong> <span th:text="${vacante.id}"></span></h5>
+                <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${vacante.fecha}"></span></h6>                
+                <h6 class="card-title"><strong>Salario Ofrecido: </strong><span th:text="${vacante.salario}"></span></h6>
+                <p class="card-text" th:text="${vacante.descripcion}"></p>
+                
+                <div class="card bg-light mb-3" >
+                  <div class="card-body">
+                    <h5 class="card-title">Detalles de la oferta de trabajo</h5>
+                    <p class="card-text">lorem input dolor dwnciensocns cesnocenscse vesnoesnoveo ensocmesnvoe voesv w ceos ces  eosv e voe oeo seo cov eovescszeces cecw ocne ow vv veo ve ve v veo ve </p>
+                  </div>
+                </div>   
+                <a class="btn btn-outline-primary" href="#" role="button" title="Quiero aplicar para esta oferta de trabajo."><i class="fas fa-file" aria-hidden="true"></i> Aplicar oferta</a>                            
+              </div>
+            </div>  
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+  </body>
 </html>
