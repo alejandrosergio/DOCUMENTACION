@@ -7,10 +7,16 @@
 <body>
 	
 	<h1>Detalle de la oferta de trabajo</h1>
+	<hr>
+	<h3>Logo Empresa</h3>
+	<img alt="imagen vacantes" th:src="@{/IMG/{img} (img=${vacante.imagen}) }" width="200" height="200">
+	<h3 th:text="'ID: ' + ${vacante.id}"></h3>
 	<h3 th:text="'Nombre: ' + ${vacante.nombre}"></h3>
 	<h3 th:text="'Fecha publicación: ' + ${vacante.fecha}"></h3>
 	<h3 th:text="'Salario ofrecido: ' + ${vacante.salario}"></h3>
 	<h3 th:text="'Descripcion: ' + ${vacante.descripcion}"></h3>
+	<h3 th:text="${vacante.destacado == 1} ? 'Oferta destacada: SI' : 'Oferta destacada: NO' "></h3>  <!-- CONDICIONAL TERNARIO -->	
+	
 	
 </body>
 </html>

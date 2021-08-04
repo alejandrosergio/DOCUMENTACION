@@ -30,6 +30,14 @@ ANOTACIONES
 
 -----------------------------------
 
+@Service: Los componentes de servicio son el archivo de clase que contiene la anotación @Service. Estos archivos de clase se utilizan para escribir lógica empresarial en una capa diferente, separada del archivo de clase @RestController
+
+-----------------------------------
+
+@Autowired: es una de las anotaciones más habituales cuando trabajamos con Spring Framework ya que se trata de la anotación que permite inyectar unas dependencias con otras dentro de Spring .
+
+-----------------------------------
+
 
 
 -----------------------------------

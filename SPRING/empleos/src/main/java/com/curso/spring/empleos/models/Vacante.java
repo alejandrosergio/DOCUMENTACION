@@ -10,7 +10,7 @@ public class Vacante {
 	private Date    fecha;
 	private Double  salario;
 	private Integer destacado;
-	private String  imagen= "no-imagen.png";
+	private String  imagen= "no-image.png";
 	
 	
 	// SETTER'S
