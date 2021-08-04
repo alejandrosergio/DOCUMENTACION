@@ -18,7 +18,15 @@ ANOTACIONES
 
 -----------------------------------
 
-@RequestMapping se usa para mapear un método de solicitud HTTP particular a una clase / método específico en el controlador que manejará la solicitud respectiva. Esta anotación se puede aplicar en ambos niveles: Nivel de clase: asigna la URL de la solicitud
+@RequestMapping: se usa para mapear un método de solicitud HTTP particular a una clase / método específico en el controlador que manejará la solicitud respectiva. Esta anotación se puede aplicar en ambos niveles: Nivel de clase: asigna la URL de la solicitud
+
+-----------------------------------
+
+@PathVariable: es la anotación que nos sirve dentro de Spring framework para configurar variables dentro de los propios segmentos de la URL algo que a nivel de Arquitecturas REST es imprescindible. Vamos a ver un par de ejemplos de como construir unas urls REST que se apoyen en este tipo de anotación.
+
+-----------------------------------
+
+@RequestParam: La finalidad, es poder recibir parámetros desde una ruta de tipo GET, para trabajar con ellos e incluso poder emitir una respuesta que dependa de los parámetros que hemos obtenido.
 
 -----------------------------------
 

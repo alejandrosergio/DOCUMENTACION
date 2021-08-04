@@ -20,9 +20,11 @@ public class HomeController {
 												// metodo
 
 		/*
+		 * 
 		 * model.addAttribute( "mensaje" , "Bienvenidos a EmpleosApp" ); // Agregamos un
 		 * atributo que se puede usar en el home model.addAttribute( "fecha" , new
 		 * Date() ); // Agregamos atributo de la fecha del sistema
+		 * 
 		 */
 
 		// VARIABLES

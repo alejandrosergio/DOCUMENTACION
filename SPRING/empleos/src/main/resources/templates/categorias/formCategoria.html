@@ -8,6 +8,15 @@
 	<h1>Agregar Categoria</h1>
 	<hr>
 	
+	<form th:action="@{/categorias/save}" method="POST">
+	  Nombre:<br>
+	  <input type="text" id="name" name="nombre" value=""><br>
+	  
+	  Descripcion:<br>
+	  <input type="text" id="desc" name="descripcion" value=""><br><br>
+	  
+	  <input type="submit" value="Guardar">
+	</form> 
 	
 </body>
 </html>

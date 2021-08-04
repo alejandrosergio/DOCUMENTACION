@@ -28,6 +28,7 @@
  			<th scope="col">Salario Ofrecido</th>
  			<th scope="col">Descripción Vacante</th>
  			<th scope="col">Destacado</th>
+ 			<th scope="col">Opciones</th>
  		</tr>
  		<tr th:each="vacante: ${vacantes}">
  			<td>
@@ -42,6 +43,10 @@
  			<td>
  				<span class="badge bg-success" th:if="${vacante.destacado == 1}">SI</span>
  				<span class="badge bg-danger"  th:unless="${vacante.destacado == 1}">NO</span>
+ 			</td>
+ 			<td>
+ 				<a th:href="@{/vacantes/view/{id} (id=${vacante.id}) }" class="btn btn-warning text-white mb-2">Detalle</a>
+ 				<a th:href="@{/vacantes/delete(id=${vacante.id}) }" class="btn btn-danger text-white mb-2">Eliminar</a>
  			</td> 
  		</tr>
  	</table>
