@@ -42,26 +42,26 @@
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Titulo de la oferta de trabajo" required="required">
+                    <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre" placeholder="Titulo de la oferta de trabajo" required="required">
                   </div>
                 </div>
                 <div class="col-md-9"> 
                   <div class="form-group">
                     <label for="descripcion">Descripción</label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Breve descripcion de la oferta de trabajo" required="required">
+                    <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion" placeholder="Breve descripcion de la oferta de trabajo" required="required">
                   </div> 
                 </div>    
-              </div>    
+              </div>
               <div class="row">
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="categoria">Categoría</label>
-                    <select class="form-control" name="categoria" id="categoria">
-                      <option value="1">Ventas</option>
-                      <option value="2">Contabilidad</option>
-                      <option value="3">Transporte</option>
-                      <option value="4">Informatica</option>
-                      <option value="5">Construccion</option>
+                    <select class="form-control" th:field="*{categoria.ID}">
+                      <option 
+                      		th:each="categoria: ${categorias}"
+                      		th:value="${categoria.ID}" 
+                      		th:text="${categoria.nombre}"
+                      ></option>
                     </select>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="estatus">Estatus</label>
-                    <select class="form-control" name="estatus" id="estatus">
+                    <select class="form-control" th:field="*{estatus}" name="estatus" id="estatus">
 					  <option value="Creada">Creada</option>
                       <option value="Aprobada">Aprobada</option>
                       <option value="Eliminada">Eliminada</option>	
@@ -79,17 +79,17 @@
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="fecha">Fecha de Publicación</label>
-                    <input type="text" class="form-control" name="fecha" id="fecha" placeholder="Fecha de publicacion" required="required">
+                    <input type="text" class="form-control"  th:field="*{fecha}" name="fecha" id="fecha" placeholder="Fecha de publicacion" required="required">
                   </div>  
                 </div>
                 <div class="col-md-3"> 
                   <div class="form-check">
                     <label class="form-check-label" for="destacado0"></label><br>
-                    <input class="form-check-input" type="radio" name="destacado" id="destacado" value="1" checked="checked">
+                    <input class="form-check-input" type="radio"  th:field="*{destacado}" name="destacado" id="destacado" value="1" checked="checked" required="required">
                     <label class="form-check-label" for="destacado1">Destacado</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="destacado" id="destacado" value="0">
+                    <input class="form-check-input" type="radio"  th:field="*{destacado}" name="destacado" id="destacado" value="0" required="required">
                     <label class="form-check-label" for="destacado2">No Destacado</label>
                   </div>
                 </div>
@@ -98,7 +98,7 @@
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="salario">Salario Ofrecido (Aprox)</label>
-                    <input type="text" class="form-control" name="salario" id="salario" placeholder="Salario aproximado." required="required">
+                    <input type="text" class="form-control"  th:field="*{salario}" name="salario" id="salario" placeholder="Salario aproximado." required="required">
                   </div>
                 </div>
                 <div class="col-md-3"> 
@@ -113,7 +113,7 @@
                 <div class="col-md-9"> 
                   <div class="form-group">
                     <label for="detalles"><strong>Detalles</strong></label>          
-                    <textarea class="form-control" name="detalles" id="detalles" rows="7"></textarea>
+                    <textarea class="form-control" th:field="*{detalles}" name="detalles" id="detalles" rows="7"></textarea>
                   </div> 
                 </div> 
                 <div class="col-md-3">
@@ -121,7 +121,8 @@
                   <img class="rounded mx-auto d-block" th:src="@{/images/no-image.png}" alt="Generic placeholder image" width="200" height="200">            
                 </div>
               </div> 
-              <button type="submit" class="btn btn-outline-primary">Guardar</button>  
+              <button type="submit" class="btn btn-outline-primary">Guardar</button>
+              <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
             </form>
           </div>
         </div>

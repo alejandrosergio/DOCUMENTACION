@@ -28,7 +28,9 @@
           <div class="card-body">
             <a class="btn btn-primary" th:href="@{/vacantes/create}" title="Crear nueva Oferta de Trabajo" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nueva</a>            
             <hr>
+            <!-- MENSAJE EXITO -->
             <div th:if="${msg != null}" class='alert alert-success' th:text="${msg}" role='alert'></div>
+            <!-- MENSAJE EXITO -->
             <table class="table table-hover">	
               <thead class="thead-light">
                 <tr>
@@ -42,14 +44,14 @@
               </thead>
               <tbody>
                 <tr th:each="vacante: ${vacantes}">
-                  <td>N/A</td>
+                  <td th:text="${vacante.categoria}"></td>
                   <td th:text="${vacante.nombre}"></td>
                   <td th:text="${vacante.fecha}"></td>
                   <td th:text="${vacante.estatus}"></td>
                   <td th:text="${vacante.destacado == 1} ? 'Si' : 'No' "></td>
                   <td>
-                    <a href="#" class="btn btn-success btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    <a href="#" class="btn btn-warning text-white btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-danger btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>
                                

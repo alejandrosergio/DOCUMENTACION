@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.curso.spring.empleos.models.Vacante;
+import com.curso.spring.empleos.services.ICategoriaService;
 import com.curso.spring.empleos.services.IVacantesService;
 
 @Controller
@@ -27,17 +28,18 @@ import com.curso.spring.empleos.services.IVacantesService;
 public class VacantesController {
 	
 	
-	// Inyectamos el bin de servicio donde obtenemos las vacantes -> se inyecta la interface que es sobrescrita
+	@Autowired
+	private IVacantesService vacantesService;
 	
 	@Autowired
-	private IVacantesService serviceVacantes;
+	private ICategoriaService categoriaService;
 	
 	
 	// Listaremos todas las vacantes
 	@GetMapping("/index")
 	public String listar( Model model) {
 		
-		List<Vacante> vacantes = serviceVacantes.obtenerVacantes();
+		List<Vacante> vacantes = vacantesService.obtenerVacantes();
 		
 		model.addAttribute("vacantes", vacantes);
 		
@@ -46,7 +48,10 @@ public class VacantesController {
 	
 	// Mapea a la url donde se encunetra el formulario para crear una vacante
 	@GetMapping("/create")
-	public String crear(Vacante vacante) {
+	public String crear(Vacante vacante, Model model) {
+		
+		model.addAttribute("categorias", categoriaService.obtenerCategorias() );
+		
 		return "vacantes/formVacante";
 	}
 	
@@ -64,19 +69,21 @@ public class VacantesController {
 		}
 		
 		// En caso de todo correcto
-		serviceVacantes.guardar(vacante);
+		vacantesService.guardar(vacante);
+		
+		System.out.println("Vacante: " + vacante);
 		
 		redirectAttributes.addFlashAttribute("msg", "Registro agregado con exito!!");
 		
 		return "redirect:/vacantes/index";
 	}
-	
+
 
 	// Mapea a la url donde podremos observar el detalle de una vacante por el id dinamico
 	@GetMapping("/view/{id}")
 	public String verDetalle( @PathVariable("id") int idVacante, Model model) {
 		
-		Vacante vacante = serviceVacantes.buscarPorId( idVacante );
+		Vacante vacante = vacantesService.buscarPorId( idVacante );
 		
 		model.addAttribute("vacante", vacante);
 		
@@ -111,41 +118,5 @@ public class VacantesController {
 		return "mensaje";
 	}
 	
-	
-	
-	
-	
-	
-	/*
-	 * REFERECIAS
-	 */
-	
-	
-	/*  REFERENCIA DE COMO SE PUEDE GUARDAR LOS DATOS DEL FORMULARIO
-	 
-	 
-	@PostMapping("/save")
-	public String guardar(
-							@RequestParam("nombre") String nombre,
-							@RequestParam("descripcion") String descripcion,
-							@RequestParam("estatus") String estatus,
-							@RequestParam("fecha") String fecha,
-							@RequestParam("destacado") int destacado,
-							@RequestParam("salario") double salario,
-							@RequestParam("detalles") String detalles
-			
-						) {
-		
-		System.out.println("Nombre vacante: " + nombre);
-		System.out.println("Descripción: " + descripcion);
-		System.out.println("Estatus: " + estatus);
-		System.out.println("Fecha publicación: " + fecha);
-		System.out.println("Destacado: " + destacado);
-		System.out.println("Salario ofrecido: " + salario);
-		System.out.println("Detalles Oferta: " + detalles);
-		
-		return "vacantes/listVacantes";
-	}
-*/
 	
 }

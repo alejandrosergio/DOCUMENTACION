@@ -1,13 +1,71 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Categorias</title>
-</head>
-<body>
-	<h1>Listado de Categorias</h1>
-	<hr>
-	
-	
-</body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>EmpleosApp | Listado de Categorías</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header th:insert="fragments/menu :: menu-principal"></header>
+
+    <main role="main">     
+      <hr>
+      <div class="container"> 
+
+        <div class="card">
+          <h4 class="card-header"><strong>Listado de Categorías</strong></h4>              
+          <div class="card-body">
+            <a class="btn btn-primary" th:href="@{/categorias/create}" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nueva</a>            
+            <hr>
+            <!-- MENSAJE EXITO -->
+            <div th:if="${msg != null}" class='alert alert-success' th:text="${msg}" role='alert'></div>
+            <!-- MENSAJE EXITO -->
+            <table class="table table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Operaciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="categoria: ${categorias}">
+                  <td th:text="${categoria.ID}" scope="row"></td>
+                  <td th:text="${categoria.nombre}"></td>
+                  <td th:text="${categoria.descripcion}"></td>
+                  <td>
+                    <a href="#" class="btn btn-warning text-white btn-sm" role="button" title="Editar"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-danger btn-sm" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                  </td>
+                </tr>           
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>     
+  </body>
 </html>

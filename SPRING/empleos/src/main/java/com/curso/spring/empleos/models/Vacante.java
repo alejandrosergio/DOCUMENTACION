@@ -7,21 +7,22 @@ public class Vacante {
 	
 	// ATRIBUTOS
 	
-	private Integer ID;
-	private String  nombre;
-	private String  descripcion;
-	private Date    fecha;
-	private Double  salario;
-	private Integer destacado;
-	private String  imagen = "no-image.png";
-	private String 	estatus;
-	private String  detalles;
+	private Integer   ID;
+	private String    nombre;
+	private String    descripcion;
+	private Date      fecha;
+	private Double    salario;
+	private Integer   destacado;
+	private String    imagen = "no-image.png";
+	private String 	  estatus;
+	private String    detalles;
+	private Categoria categoria;
 	
 	
 	// SETTER'S
 	
-	public void setId(Integer ID) {
-		this.ID = ID;
+	public void setID(Integer iD) {
+		ID = iD;
 	}
 	
 	public void setNombre(String nombre) {
@@ -56,12 +57,16 @@ public class Vacante {
 	public void setDetalles(String detalles) {
 		this.detalles = detalles;
 	}
+	
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 
 	
 	
 	// GUETER'S
 	
-	public Integer getId() {
+	public Integer getID() {
 		return ID;
 	}
 
@@ -97,20 +102,20 @@ public class Vacante {
 		return detalles;
 	}
 	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	
 	
 	
 	// MÉTODO toString
-
+	
 	@Override
 	public String toString() {
 		return "Vacante [ID=" + ID + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
 				+ ", salario=" + salario + ", destacado=" + destacado + ", imagen=" + imagen + ", estatus=" + estatus
-				+ ", detalles=" + detalles + "]";
+				+ ", detalles=" + detalles + ", categoria=" + categoria + "]";
 	}
-
 	
-
-	
-
 
 }

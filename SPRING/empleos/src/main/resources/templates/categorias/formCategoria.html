@@ -19,19 +19,29 @@
 
     <header th:insert="fragments/menu :: menu-principal"></header>
 
-    <main role="main">     
+    <main role="main">
       <hr>
       <div class="container"> 
 
         <div class="card">
           <h4 class="card-header"><strong>Datos de la categoría</strong></h4>              
           <div class="card-body">
-            <form th:action="@{/categorias/save}" method="POST">              
+            <form th:action="@{/categorias/save}" method="POST" th:object="${categoria}" >         
+            
+            <!-- ERRORES MESSAG -->
+            <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role='alert'> 
+             	<span> Por favor corrija los siguientes errores: </span>
+				<ul>
+					<li th:each="err : ${#fields.errors('*')}" th:text="${err}" /> 
+				</ul>
+			</div>
+            <!-- ERROR MESSAG -->
+                 
               <div class="row">
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba el nombre de la categoria" required="required">
+                    <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre" placeholder="Escriba el nombre de la categoria" required="required">
                   </div>
                 </div>                
               </div> 
@@ -39,12 +49,13 @@
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="descripcion">Descripción</label>
-                    <textarea class="form-control" name="descripcion" id="descripcion" rows="2"></textarea>
+                    <textarea class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion"  rows="2"></textarea>
                   </div> 
                 </div>                
               </div> 
               <hr>
               <button type="submit" title="Guardar el registro." class="btn btn-outline-primary">Guardar</button>  
+              <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
             </form>
           </div>
         </div>

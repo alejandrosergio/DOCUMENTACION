@@ -32,7 +32,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			// OFERTA TRABAJO 1
 			Vacante vacante1 = new Vacante();
 			
-			vacante1.setId(1);
+			vacante1.setID(1);
 			vacante1.setNombre("Ingeniero Civil");
 			vacante1.setDescripcion("Solicitamos ing. civil para diseñar puente peatonal.");
 			vacante1.setFecha( sdf.parse("10-02-2021") );
@@ -44,7 +44,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			// OFERTA TRABAJO 2
 			Vacante vacante2 = new Vacante();
 			
-			vacante2.setId(2);
+			vacante2.setID(2);
 			vacante2.setNombre("Contador publico");
 			vacante2.setDescripcion("Empresa importante solicita contador con 5 años de experiencia titulado.");
 			vacante2.setFecha( sdf.parse("11-03-2021") );
@@ -56,7 +56,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			// OFERTA TRABAJO 3
 			Vacante vacante3 = new Vacante();
 			
-			vacante3.setId(3);
+			vacante3.setID(3);
 			vacante3.setNombre("Ingeniero electrico");
 			vacante3.setDescripcion("Empresa importante solicita ingeniero mecánico para mantenimiento de la instalación eléctrica.");
 			vacante3.setFecha( sdf.parse("12-04-2021") );
@@ -67,7 +67,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			// OFERTA TRABAJO 1
 			Vacante vacante4 = new Vacante();
 			
-			vacante4.setId(4);
+			vacante4.setID(4);
 			vacante4.setNombre("Diseñador grafico");
 			vacante4.setDescripcion("Solicitamos Diseñador Gráfico titulado para el diseño y publicidad de la empresa.");
 			vacante4.setFecha( sdf.parse("13-05-2021") );
@@ -105,7 +105,7 @@ public class VacantesServiceImpl implements IVacantesService {
 		
 		for ( Vacante v: lista) {
 			
-			if ( v.getId() == idVacante ) {
+			if ( v.getID() == idVacante ) {
 				
 				return v;
 			}

@@ -1,43 +1,65 @@
 package com.curso.spring.empleos.controllers;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.curso.spring.empleos.models.Categoria;
+import com.curso.spring.empleos.services.ICategoriaService;
 
 @Controller
-@RequestMapping( value="/categorias") // A NIVEL CLASE
+@RequestMapping("/categorias")
 public class categoriasController {
 	
+	@Autowired
+	private ICategoriaService categoriaService;
 	
-	// @RequestMapping( value="/index", method=RequestMethod.GET ) // A NIVEL METODO
 	
+	// Listado de categorias obtenemos del servicio
 	@GetMapping("/index")
 	public String mostrarIndex(Model model) {
+		
+		List<Categoria> categorias = categoriaService.obtenerCategorias();
+		
+		model.addAttribute("categorias", categorias);
+		
 		return "categorias/listCategorias";
 	}
 	
-	
-	// @GetMapping("/create")
-	
-	@RequestMapping( value="/create", method=RequestMethod.GET )
-	public String crear() {
+	// Mapea a la url donde se encunetra el formulario para crear una cateoria
+	@GetMapping("/create")
+	public String crear(Categoria categoria) {
 		return "categorias/formCategoria";
 	}
 	
 	
-	
-	// @PostMapping("/save")
-	
-	@RequestMapping( value="/save", method=RequestMethod.POST )
-	public String guardar( @RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion ) {
+	// Mapea a la url donde se ara el data binding y retornara la vista de las listas de vacantes
+	@PostMapping("/save")
+	public String guardar( Categoria categoria, BindingResult bindingResult,  RedirectAttributes redirectAttributes ) {
 		
-		System.out.println("Categoria: " + nombre);
-		System.out.println("Descripcion: " + descripcion);
+		// En caso de errores en el formulario
+		if ( bindingResult.hasErrors() ) {
+			for ( ObjectError error: bindingResult.getAllErrors() ) {
+				System.out.println("Ocurrio un error: " + error.getDefaultMessage() );
+			}
+			return "categorias/formCategoria";
+		}
+
+
+		// En caso de todo correcto
+		categoriaService.guardar(categoria);
 		
-		return "categorias/listCategorias";
+		redirectAttributes.addFlashAttribute("msg", "Registro agregado con exito!!");
+		
+		return "redirect:/categorias/index";
 	}
 
 }
