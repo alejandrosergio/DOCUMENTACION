@@ -38,6 +38,10 @@ ANOTACIONES
 
 -----------------------------------
 
+@InitBinder: WebDataBinder es una subclase de DataBinder, que se utiliza para completar el enlace de los campos de formulario a las propiedades de JavaBean. El método @InitBinder no puede tener un valor de retorno, debe declararse como vacío
+
+-----------------------------------
+
 
 
 -----------------------------------

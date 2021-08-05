@@ -14,10 +14,14 @@ import com.curso.spring.empleos.models.Vacante;
 public class VacantesServiceImpl implements IVacantesService {
 	
 	
+	// Creamos una lista donde almacenaremos las vacantes de tipo Vacante -> modelo
 	private List<Vacante> lista = null;
 	
 	
+	// ya veremos
 	public VacantesServiceImpl() {
+		
+		// TODO: Obtener vacantes de la base de datos
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); // Darle formato a nuestras fechas
 		
@@ -35,6 +39,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			vacante1.setSalario(18500.0);
 			vacante1.setDestacado(1);
 			vacante1.setImagen("logo1.png");
+			vacante1.setEstatus("Creada");
 			
 			// OFERTA TRABAJO 2
 			Vacante vacante2 = new Vacante();
@@ -46,6 +51,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			vacante2.setSalario(12000.0);
 			vacante2.setDestacado(0);
 			vacante2.setImagen("logo2.png");
+			vacante2.setEstatus("Aprobada");
 			
 			// OFERTA TRABAJO 3
 			Vacante vacante3 = new Vacante();
@@ -56,6 +62,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			vacante3.setFecha( sdf.parse("12-04-2021") );
 			vacante3.setSalario(10500.0);
 			vacante3.setDestacado(0);
+			vacante3.setEstatus("Creada");
 			
 			// OFERTA TRABAJO 1
 			Vacante vacante4 = new Vacante();
@@ -67,6 +74,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			vacante4.setSalario(7500.0);
 			vacante4.setDestacado(1);
 			vacante4.setImagen("logo4.png");
+			vacante4.setEstatus("Aprobada");
 			
 			
 			// AGREGAMOS LAS VACANTES A LA LISTA
@@ -83,14 +91,15 @@ public class VacantesServiceImpl implements IVacantesService {
 	}
 	
 	
-
+	// Retornamos las vacantes para ser obtenidad mediante inyeción de bin
 	@Override
 	public List<Vacante> obtenerVacantes() {	
 		return lista;
 	}
 
+	
 
-
+	// retornamos la vacante buscada por id que se encuenntre en la lista
 	@Override
 	public Vacante buscarPorId(Integer idVacante) {
 		
@@ -104,6 +113,13 @@ public class VacantesServiceImpl implements IVacantesService {
 		}
 		
 		return null;
+	}
+
+
+	// Agregamos las vacantes a la lista
+	@Override
+	public void guardar(Vacante vacante) {
+		lista.add(vacante);	
 	}
 
 	
