@@ -51,10 +51,10 @@
           </div>
           <div class="col-md-9">
             <h2 th:text="${vacante.nombre}"></h2>
-            <h6 class="card-title"><strong>Categoría:</strong> <span th:text="${vacante.id}"></span></h6>
+            <h6 class="card-title"><strong>Categoría:</strong> <span th:text="${vacante.ID}"></span></h6>
             <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${vacante.fecha}"></span></h6>                
             <p th:text="${vacante.descripcion}"></p>
-            <p><a th:href="@{/vacantes/view/{id} (id=${vacante.id}) }" class="btn btn-outline-primary">Ver detalle</a></p>            
+            <p><a th:href="@{/vacantes/view/{id} (id=${vacante.ID}) }" class="btn btn-outline-primary">Ver detalle</a></p>            
           </div>
         </div>
 		  <hr>	

@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="container">
+<body>
 
 	<header th:insert="fragments/menu :: menu-principal"></header>
 
@@ -38,7 +38,7 @@
  			<td>
  				<img alt="imagen vacantes" th:src="@{/images/{img} (img=${vacante.imagen}) }" width="136" height="136">
  			</td>
- 			<td th:text="${vacante.id}"></td>
+ 			<td th:text="${vacante.ID}"></td>
  			<td th:text="${vacante.nombre}"></td>
  			<td th:text="${vacante.fecha}"></td>
  			<td th:text="${vacante.salario}"></td>
@@ -49,8 +49,8 @@
  				<span class="badge bg-danger"  th:unless="${vacante.destacado == 1}">NO</span>
  			</td>
  			<td>
- 				<a th:href="@{/vacantes/view/{id} (id=${vacante.id}) }" class="btn btn-warning text-white mb-2">Detalle</a>
- 				<a th:href="@{/vacantes/delete(id=${vacante.id}) }" class="btn btn-danger text-white mb-2">Eliminar</a>
+ 				<a th:href="@{/vacantes/view/{id} (id=${vacante.ID}) }" class="btn btn-warning text-white mb-2">Detalle</a>
+ 				<a th:href="@{/vacantes/delete(id=${vacante.ID}) }" class="btn btn-danger text-white mb-2">Eliminar</a>
  			</td> 
  		</tr>
  	</table>
