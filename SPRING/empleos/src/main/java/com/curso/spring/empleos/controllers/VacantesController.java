@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.curso.spring.empleos.models.Vacante;
 import com.curso.spring.empleos.services.ICategoriaService;
 import com.curso.spring.empleos.services.IVacantesService;
+import com.curso.spring.empleos.util.Utileria;
 
 @Controller
 @RequestMapping("/vacantes")
@@ -58,7 +60,7 @@ public class VacantesController {
 	
 	// Mapea a la url donde se ara el data binding y retornara la vista de las listas de vacantes
 	@PostMapping("/save")
-	public String guardar( Vacante vacante, BindingResult bindingResult,  RedirectAttributes redirectAttributes ) {
+	public String guardar( Vacante vacante, BindingResult bindingResult,  RedirectAttributes redirectAttributes, @RequestParam("archivoImagen") MultipartFile multiPart ) {
 		
 		// En caso de errores en el formulario
 		if ( bindingResult.hasErrors() ) {
@@ -68,7 +70,25 @@ public class VacantesController {
 			return "vacantes/formVacante";
 		}
 		
-		// En caso de todo correcto
+		// Guardamos la imagen
+		if (!multiPart.isEmpty()) { // si multiPart no llego nulo
+			
+			String ruta = "/Applications/DESKTOP/DOCUMENTACION/SPRING/empleos/empleos/img-vacantes/";
+			
+			String nombreImagen = Utileria.guardarArchivo( multiPart, ruta );
+			
+			// La imagen si se subio
+			if (nombreImagen != null){
+			
+				// Procesamos la variable nombreImagen
+				vacante.setImagen(nombreImagen); }
+			}else {
+				
+				System.out.println("Error: No se establecio la imagen");
+			}
+		
+		
+		// En caso de todo correcto	
 		vacantesService.guardar(vacante);
 		
 		System.out.println("Vacante: " + vacante);

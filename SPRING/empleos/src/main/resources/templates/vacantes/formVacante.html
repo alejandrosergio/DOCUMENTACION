@@ -27,7 +27,7 @@
         <div class="card">
           <h4 class="card-header"><strong>Datos de la oferta de trabajo</strong></h4>              
           <div class="card-body">
-            <form th:action="@{/vacantes/save}" method="POST" th:object="${vacante}">
+            <form th:action="@{/vacantes/save}" method="POST" th:object="${vacante}" enctype="multipart/form-data">
             
             <!-- ERRORES MESSAG -->
             <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role='alert'> 
