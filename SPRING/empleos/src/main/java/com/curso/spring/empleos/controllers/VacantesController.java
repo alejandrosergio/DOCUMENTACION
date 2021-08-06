@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +30,10 @@ import com.curso.spring.empleos.util.Utileria;
 @RequestMapping("/vacantes")
 public class VacantesController {
 	
+	
+	// Obtener el valor de la propiedad especificada del fichero application.properties
+	@Value("${ruta.imagenes}")
+	private String ruta;
 	
 	@Autowired
 	private IVacantesService vacantesService;
@@ -72,8 +77,6 @@ public class VacantesController {
 		
 		// Guardamos la imagen
 		if (!multiPart.isEmpty()) { // si multiPart no llego nulo
-			
-			String ruta = "/Applications/DESKTOP/DOCUMENTACION/SPRING/empleos/empleos/img-vacantes/";
 			
 			String nombreImagen = Utileria.guardarArchivo( multiPart, ruta );
 			
