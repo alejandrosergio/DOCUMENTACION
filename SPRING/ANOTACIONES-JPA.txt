@@ -1,0 +1,49 @@
+ANOTACIONES-JPA
+
+-----------------------------------
+ 
+@Entity: le estaremos diciendo a JPA que esta clase es una Entidad y deberá ser administrada por EntityManager -> cuyo estado es persistido de manera asociada a una tabla en una base de datos relacional. ... Normalmente las entidades están relacionadas con otras entidades, y estas relaciones son expresadas a través de metadatos objeto/relacional
+
+-----------------------------------
+
+@Table: es utilizada para indicarle a JPA contra que tabla debe de mapear una entidad, de esta manera cuando se realice una persistencia, borrado o select de la entidad, JPA sabrá contra que tabla de la base de datos deberá interactuar.
+
+-----------------------------------
+
+@Id: le decimos a JPA que este atributo sera la clave unica(ID) de la entidad, solo puede existir una clave primaria
+
+-----------------------------------
+
+@GeneratedValue(strategy = GenerationType.IDENTITY): la anotación nos permite decirle a JPA que el atributo sera auto-incrementable ->luego en parentecis le decimos la estrategia que usara para el auto-incremento.
+
+-> IDENTITY: es para mysql.
+
+-----------------------------------
+
+
+
+-----------------------------------
+
+
+
+-----------------------------------
+
+
+
+-----------------------------------
+
+
+
+-----------------------------------
+
+
+
+-----------------------------------
+
+
+
+-----------------------------------
+
+
+
+-----------------------------------
