@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity		
+@Entity
 @Table(name="Categorias")
 public class Categoria {
 	
@@ -19,6 +19,11 @@ public class Categoria {
 	
 	private String  nombre;
 	private String  descripcion;
+	
+	
+	// CONSTRUCTOR
+	
+	public Categoria() {}
 	
 	
 	// SETTER'S

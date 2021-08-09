@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>EmpleosApp | Creación de Ofertas de Trabajo</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="bootstrap/css/jumbotron.css" rel="stylesheet">
+    <link href="bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" >
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">EmpleosApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Menu 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Menu 2</a>
+            </li>          
+          </ul>  
+          <a class="btn btn-primary" href="#">Ingresar</a>&nbsp;
+          <a class="btn btn-primary" href="#">Registrarse</a>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">     
+      <hr>
+      <div class="container"> 
+
+        <div class="card">
+          <h4 class="card-header"><strong>Datos de la oferta de trabajo</strong></h4>              
+          <div class="card-body">
+            <form>              
+              <div class="row">
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Titulo de la oferta de trabajo" required="required">
+                  </div>
+                </div>
+                <div class="col-md-9"> 
+                  <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Breve descripcion de la oferta de trabajo" required="required">
+                  </div> 
+                </div>    
+              </div>    
+              <div class="row">
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="categoria">Categoría</label>
+                    <select class="form-control" name="categoria" id="categoria">
+                      <option value="1">Ventas</option>
+                      <option value="2">Contabilidad</option>
+                      <option value="3">Transporte</option>
+                      <option value="4">Informatica</option>
+                      <option value="5">Construccion</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="estatus">Estatus</label>
+                    <select class="form-control" name="estatus" id="estatus">
+					  <option value="Creada">Creada</option>
+                      <option value="Aprobada">Aprobada</option>
+                      <option value="Eliminada">Eliminada</option>	
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="fecha">Fecha de Publicación</label>
+                    <input type="text" class="form-control" name="fecha" id="fecha" placeholder="Fecha de publicacion" required="required">
+                  </div>  
+                </div>
+                <div class="col-md-3"> 
+                  <div class="form-check">
+                    <label class="form-check-label" for="destacado0"></label><br>
+                    <input class="form-check-input" type="radio" name="destacado" id="destacado" value="1" checked="checked">
+                    <label class="form-check-label" for="destacado1">Destacado</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="destacado" id="destacado" value="0">
+                    <label class="form-check-label" for="destacado2">No Destacado</label>
+                  </div>
+                </div>
+              </div>    
+              <div class="row">
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="salario">Salario Ofrecido (Aprox)</label>
+                    <input type="text" class="form-control" name="salario" id="salario" placeholder="Salario aproximado." required="required">
+                  </div>
+                </div>
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="archivoImagen">Imagen</label>
+                    <input type="file" class="form-control-file" name="archivoImagen" id="archivoImagen">
+                  </div>
+                </div>
+              </div> 
+              <hr>
+              <div class="row">
+                <div class="col-md-9"> 
+                  <div class="form-group">
+                    <label for="detalles"><strong>Detalles</strong></label>          
+                    <textarea class="form-control" name="detalles" id="detalles" rows="7"></textarea>
+                  </div> 
+                </div> 
+                <div class="col-md-3">
+                  <label for="imagen">Imagen/Logo</label>
+                  <img class="rounded mx-auto d-block" src="images/construccion-logo.png" alt="Generic placeholder image" width="200" height="200">            
+                </div>
+              </div> 
+              <button type="submit" class="btn btn-primary">Guardar</button>  
+            </form>
+          </div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2019 EmpleosApp, Inc. | WebApp Desarrollada con Spring Boot 2.1.2 | Autor: Iv&aacute;n E. Tinajero D&iacute;az | &middot; <a href="#">Privacy</a>
+          &middot; <a href="#">Terms</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>    
+    <script src="tinymce/tinymce.min.js"></script>
+    <script>
+      
+      $(function () {
+          $("#fecha").datepicker({dateFormat: 'dd-mm-yy'});
+        }
+      );
+      
+      /*
+      tinymce.init({
+          selector: '#detalles',
+          plugins: "textcolor, table lists code",
+          toolbar: " undo redo | bold italic | alignleft aligncenter alignright alignjustify \n\
+                    | bullist numlist outdent indent | forecolor backcolor table code"
+      });
+      
+      */
+      
+    </script>
+  </body>
+</html>
