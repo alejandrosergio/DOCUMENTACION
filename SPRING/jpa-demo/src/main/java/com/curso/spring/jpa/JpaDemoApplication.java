@@ -1,5 +1,6 @@
 package com.curso.spring.jpa;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -8,17 +9,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import com.curso.spring.jpa.models.Categoria;
+import com.curso.spring.jpa.models.Vacante;
 import com.curso.spring.jpa.repository.CategoriasRepository;
+import com.curso.spring.jpa.repository.VacantesRepository;
 
 @SpringBootApplication
 public class JpaDemoApplication  implements CommandLineRunner{
 	
 	
-	// INYECCION CRUD-REPOSITORY
+	// INYECCION Categoria-REPOSITORY
 	@Autowired
 	private CategoriasRepository categoriasRepository;
+	
+	// INYECCION Categoria-REPOSITORY
+	@Autowired
+	private VacantesRepository vacantesRepository;
 
 	// CORAZON DEL PROYECTO
 	public static void main(String[] args) {
@@ -32,10 +42,151 @@ public class JpaDemoApplication  implements CommandLineRunner{
 		System.out.println("Spring DATA-JPA");
 		
 
+		saveVacante();
+		
+		
+	}
+	// -------------====================================== OTROS METODOS ============================================-------------
+	
+	
+	private void saveVacante() {
+		
+		Vacante vacante = new Vacante();
+		
+		vacante.setNombre("Profesor de matematicas");
+		vacante.setDescripcion("Escuela primaria solicita profesor para curso de matematicas");
+		vacante.setFecha( new Date());
+		vacante.setSalario(8500.0);
+		vacante.setEstatus("Aprobada");
+		vacante.setDestacado(0);
+		vacante.setImagen("escuela.png");
+		vacante.setDetalles("<h1>Los requisitos para el profesor de matematicas</h1>");
+		
+		Categoria categoria = new Categoria();
+		
+		categoria.setiD(15);
+		
+		vacante.setCategoria(categoria);
+		
+		vacantesRepository.save(vacante);
+		
+		
 		
 	}
 	
-	// METODOS IMPLEMENTADOS DE CRUD-REPOSITORY
+	
+	
+	// Listamos las categorias con una relacion 1:1 
+	@SuppressWarnings("unused")
+	private void findAllVacantes() {
+		
+		List<Vacante> vacantes = vacantesRepository.findAll();
+		
+		for(Vacante v: vacantes ) {
+			
+			System.out.println(v.getID() + " " + v.getNombre() + ": " + v.getCategoria().getNombre() );
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	// -------------=================== METODOS IMPLEMENTADOS DE JPA-REPOSITORY + los de crud =========================-------------
+	
+	
+	// método findAll [con paginación y ordenados] - Interface PagingAndSortingRepository
+	
+	@SuppressWarnings("unused")
+	private void findAllJpaPaginacionOrdenados() {
+		
+		Page<Categoria> page = categoriasRepository.findAll(PageRequest.of(0, 5, Sort.by("nombre").descending()));
+		
+		System.out.println("Total registros: " + page.getTotalElements() );
+		System.out.println("Total paginas: "   + page.getTotalPages() );
+		
+		for(Categoria c : page.getContent()) {
+			
+			System.out.println(c.getID() + " " + c.getNombre());
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+	// método findAll [con paginación] - Interfaz PagingAndSortingRepository
+	@SuppressWarnings("unused")
+	private void findAllJpaPaginacion() {
+		
+		Page<Categoria> page = categoriasRepository.findAll(PageRequest.of(0, 5));
+		
+		System.out.println("Total registros: " + page.getTotalElements() );
+		System.out.println("Total paginas: "   + page.getTotalPages() );
+
+		
+		
+		for(Categoria c : page.getContent()) {
+			
+			System.out.println(c.getID() + " " + c.getNombre());
+			
+		}
+		
+	}
+	
+	
+	
+	
+	// método findAll [ordenar por un campo] - Interface PagingAndSortingRepository
+	@SuppressWarnings("unused")
+	private void findAllJpaOrder() {
+	
+		List<Categoria> categorias = categoriasRepository.findAll(Sort.by("nombre").descending());
+		
+		for(Categoria categoria: categorias) {
+			
+			System.out.println( categoria.getID() + " " + categoria.getNombre());
+			
+		}
+		
+	}
+	
+	
+	
+	
+	// método deleteAllInBatch [usar con precaución] -> elimina todo los registros de la tabla
+	@SuppressWarnings("unused")
+	private void deleteAllInBatch() {
+		
+		categoriasRepository.deleteAllInBatch();
+		
+	}
+		
+	
+	// método findAll - nos permite listar todos los registro de la tabla
+	@SuppressWarnings("unused")
+	private void findAllJpa() {
+		
+		List<Categoria> categorias = categoriasRepository.findAll();
+	
+		for(Categoria categoria: categorias) {
+			
+			System.out.println( categoria.getID() + " " + categoria.getNombre());
+			
+		}
+		
+	}
+		
+	
+	
+	// -------------=================== METODOS IMPLEMENTADOS DE CRUD-REPOSITORY =========================-------------
 	
 	// método save: nos inserta un registro en la base de datos para que persista
 	@SuppressWarnings("unused")

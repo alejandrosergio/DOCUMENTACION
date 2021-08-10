@@ -20,15 +20,15 @@ ANOTACIONES-JPA
 
 -----------------------------------
 
-
-
------------------------------------
-
-
+@Transient: se utiliza para indicarle a JPA que un atributo de una Entidad no debe de ser persistente, de esta manera, JPA pasa por alto el atributo y no es tomado en cuenta a la hora de persistir el Objeto.
 
 -----------------------------------
 
+@OneToOne: se utilizan cuando existe una profunda relación entre la Entidad origen y destino,de tal forma que la entidad destino le pertenece a la Entidad origen y solo a ella, por ende, la existencia de la entidad destino depende de la Entidad origen.
 
+-----------------------------------
+
+@JoinColumn(name="nombre de la llave FK"): Esta anotación sirve en JPA para hacer referencia a la columna que es clave externa en la tabla y que se encarga de definir la relación 
 
 -----------------------------------
 
