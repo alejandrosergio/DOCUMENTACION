@@ -14,22 +14,42 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
 import com.curso.spring.jpa.models.Categoria;
+import com.curso.spring.jpa.models.Perfil;
+import com.curso.spring.jpa.models.Usuario;
 import com.curso.spring.jpa.models.Vacante;
 import com.curso.spring.jpa.repository.CategoriasRepository;
+import com.curso.spring.jpa.repository.PerfilesRepository;
+import com.curso.spring.jpa.repository.UsuariosRepository;
 import com.curso.spring.jpa.repository.VacantesRepository;
+
+/**
+ * @author alejandroseeik
+ *
+ */
 
 @SpringBootApplication
 public class JpaDemoApplication  implements CommandLineRunner{
 	
 	
-	// INYECCION Categoria-REPOSITORY
+	// INYECCION Categorias-REPOSITORY
 	@Autowired
 	private CategoriasRepository categoriasRepository;
 	
-	// INYECCION Categoria-REPOSITORY
+	// INYECCION vacantes-REPOSITORY
 	@Autowired
 	private VacantesRepository vacantesRepository;
+	
+	//INYECCION Perfiles-REPOSITORY
+	@Autowired
+	private PerfilesRepository perfilesRepository;
+	
+	//INYECCION Usuarios-REPOSITORY
+	@Autowired
+	private UsuariosRepository usuariosRepository;
 
+	
+	
+	
 	// CORAZON DEL PROYECTO
 	public static void main(String[] args) {
 		SpringApplication.run(JpaDemoApplication.class, args);
@@ -42,13 +62,84 @@ public class JpaDemoApplication  implements CommandLineRunner{
 		System.out.println("Spring DATA-JPA");
 		
 
-		saveVacante();
-		
-		
+		buscarUsuario();
+			
 	}
+	
 	// -------------====================================== OTROS METODOS ============================================-------------
 	
 	
+	/**
+	 * Método para buscar un usuario y desplegar sus perfiles asociados
+	 */
+	
+	private void buscarUsuario() {
+	
+		Optional<Usuario> optional = usuariosRepository.findById(1);
+		
+		if (optional.isPresent()) {
+			
+			Usuario usuario = optional.get();
+			System.out.println("Usuario: " + usuario.getNombre());
+			System.out.println("Perfiles asignados ");
+			
+			for( Perfil perfil : usuario.getPerfiles() ) {
+				System.out.println("->" + perfil.getPerfil());
+				
+			}
+			
+		} else {
+		
+			System.out.println("No se encontro el usuario");
+		}
+		
+	}
+	
+	
+	/**
+	 *  CREAR UN USUARIO CON 2 PERFILES "USUARIO" / "ADMINISTRADOR"
+	 */
+	
+	@SuppressWarnings("unused")
+	private void crearUsuarioConDosPerfiles() {
+		
+		Usuario usuario = new Usuario();
+		
+		usuario.setNombre("Alejandro Seeik");
+		usuario.setEmail("alejosergio3000@gmail.com");
+		usuario.setFechaRegistro(new Date());
+		usuario.setUsername("AlejandroSergio");
+		usuario.setPassword("password");
+		usuario.setEstatus(1);
+		
+		Perfil perfil1 = new Perfil();
+		perfil1.setID(2);
+		
+		Perfil perfil2 = new Perfil();
+		perfil2.setID(3);
+		
+		
+		usuario.agregarPerfiles(perfil1);
+		usuario.agregarPerfiles(perfil2);
+		
+		usuariosRepository.save(usuario);
+		
+	}
+	
+	
+	/**
+	 *  Metodo para crear PERFILES / ROLES
+	 */
+	@SuppressWarnings("unused")
+	private void crearPerfilesAplicacion() {
+		
+		perfilesRepository.saveAll( getListaPerfiles() );
+		
+	}
+	
+	
+	
+	@SuppressWarnings("unused")
 	private void saveVacante() {
 		
 		Vacante vacante = new Vacante();
@@ -355,7 +446,7 @@ public class JpaDemoApplication  implements CommandLineRunner{
 	
 	/*
 	 * 
-	 * Método que reguresa una lista de 3 categorias
+	 * Método que regresa una lista de 3 categorias
 	 * @return
 	 * 
 	 */
@@ -364,8 +455,9 @@ public class JpaDemoApplication  implements CommandLineRunner{
 		
 		List<Categoria> list = new LinkedList<Categoria>();
 		
+		
 		// Categoria 1
-		Categoria categoria1 = new Categoria();
+		Categoria categoria1 = new Categoria();		
 		categoria1.setNombre("Programador de Blockchain");
 		categoria1.setDescripcion("Trabajo relacionados con bitcoin y Criptomonedas.");
 		
@@ -391,6 +483,46 @@ public class JpaDemoApplication  implements CommandLineRunner{
 		return list;
 		
 	}
+	
+	
+	/*
+	 * 
+	 * Método que regresa una lista de 3 perfiles
+	 * @return
+	 * 
+	 */
+	private List<Perfil> getListaPerfiles(){
+		
+		List<Perfil> list = new LinkedList<Perfil>();
+		
+		
+		// Perfil 1
+		Perfil perfil1 = new Perfil();
+		perfil1.setPerfil("SUPERVISOR");
+		
+		// Perfil 2
+		Perfil perfil2 = new Perfil();
+		perfil2.setPerfil("ADMINISTRADOR");
+		
+		// Perfil 3
+		Perfil perfil3 = new Perfil();
+		perfil3.setPerfil("USUARIO");
+		
+		
+		//  Agregamos las categorias a la lista
+		list.add(perfil1);
+		list.add(perfil2);
+		list.add(perfil3);
+		
+		
+		System.out.println("Perfiles agregados");
+		
+		// Retornamos la lista
+		return list;
+		
+	}
+	
+	
 	
 	
 }

@@ -32,7 +32,15 @@ ANOTACIONES-JPA
 
 -----------------------------------
 
+@ManyToOne: Es una de las anotaciones mas habituales a nivel de JPA y se encarga de generar una relación de muchos a uno . @JoinColumn:Esta anotación sirve en JPA para hacer referencia a la columna que es clave externa en la tabla y que se encarga de definir la relación 
 
+-----------------------------------
+
+@ManyToMany(fetch = FetchType.EAGER): Muchos a muchos.
+
+-----------------------------------
+
+@JoinTable: anotación se utiliza para especificar el nombre de la tabla a través del name atributo, así como la columna de clave externa que hace referencia a la post tabla (por ejemplo, joinColumns ) y la columna de clave externa en la post_tag tabla de enlaces que hace referencia a la Tag entidad.
 
 -----------------------------------
 
@@ -40,7 +48,11 @@ ANOTACIONES-JPA
 
 -----------------------------------
 
+-----------------------------------
 
+
+
+-----------------------------------
 
 -----------------------------------
 

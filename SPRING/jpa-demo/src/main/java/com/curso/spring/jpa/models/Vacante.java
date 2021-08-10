@@ -37,6 +37,11 @@ public class Vacante {
 	private Categoria categoria;
 	
 	
+	
+	// CONSTRUCTOR
+	public Vacante() {}
+	
+	
 	// SETTER'S
 	
 	public void setID(Integer iD) {
