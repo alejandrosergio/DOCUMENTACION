@@ -28,7 +28,7 @@ public class Categoria {
 	
 	// SETTER'S
 	
-	public void setiD(Integer ID) {
+	public void setID(Integer ID) {
 		this.ID = ID;
 	}
 	

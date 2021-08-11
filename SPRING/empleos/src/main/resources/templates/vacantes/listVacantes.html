@@ -22,16 +22,18 @@
 
     <main role="main">     
       <hr>
-      <div class="container"> 
+      <div> 
 
         <div class="card">
           <h4 class="card-header"><strong>Listado de Ofertas de Trabajo</strong></h4>              
           <div class="card-body">
             <a class="btn btn-primary" th:href="@{/vacantes/create}" title="Crear nueva Oferta de Trabajo" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nueva</a>            
             <hr>
-            <!-- MENSAJE EXITO -->
-            <div th:if="${msg != null}" class='alert alert-success' th:text="${msg}" role='alert'></div>
-            <!-- MENSAJE EXITO -->
+            <!-- MENSAJE CREATE -->
+            <div th:if="${msgCreate != null}" class='alert alert-success' th:text="${msgCreate}" role='alert'></div>
+            <!-- MENSAJE DELETE -->
+            <div th:if="${msgDelete != null}" class='alert alert-danger' th:text="${msgDelete}" role='alert'></div>
+            <!-- TABLA REGISTROS -->
             <table class="table table-hover">	
               <thead class="thead-light">
                 <tr>
@@ -51,11 +53,12 @@
                   <td th:text="${vacante.estatus}"></td>
                   <td th:text="${vacante.destacado == 1} ? 'Si' : 'No' "></td>
                   <td>
-                    <a href="#" class="btn btn-warning text-white btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-danger btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                  	<a th:href="@{/vacantes/view/{id} (id=${vacante.ID}) }" class="btn btn-outline-primary " role="button" title="ver detalle del registro."><i class="fas fa-eye" aria-hidden="true"></i></a>
+                    <a th:href="@{/vacantes/edit/{id} (id=${vacante.ID}) }" class="btn btn-outline-warning " role="button" title="Editar el registro."><i class="fas fa-edit" aria-hidden="true"></i></a>
+                    <a th:href="@{/vacantes/delete/{id} (id=${vacante.ID}) }" onclick="return confirm('¿Estas seguro?')" class="btn btn-outline-danger" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>
-                               
+                
               </tbody>
             </table>
             

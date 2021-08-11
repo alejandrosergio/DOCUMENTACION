@@ -14,6 +14,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,13 +28,18 @@ import com.curso.spring.empleos.services.IVacantesService;
 import com.curso.spring.empleos.util.Utileria;
 
 @Controller
-@RequestMapping("/vacantes")
+@RequestMapping(value = "/vacantes")
 public class VacantesController {
+	
+	//=================================================== RUTAS ========================================================//
 	
 	
 	// Obtener el valor de la propiedad especificada del fichero application.properties
 	@Value("${ruta.imagenes}")
 	private String ruta;
+	
+	
+	//=================================================== INYECCIONES ===================================================//
 	
 	
 	// INYECTAMOS LA INTERFACE IVACANTES-SERVICE
@@ -48,6 +54,8 @@ public class VacantesController {
 	
 	
 	
+	//=================================================== MÉTODOS ======================================================//
+	
 	// Listaremos todas las vacantes
 	@GetMapping("/index")
 	public String listar( Model model) {
@@ -61,16 +69,12 @@ public class VacantesController {
 	
 	
 	
-	
 	// Mapea a la url donde se encunetra el formulario para crear una vacante
 	@GetMapping("/create")
 	public String crear(Vacante vacante, Model model) {
 		
-		model.addAttribute("categorias", categoriaService.obtenerCategorias() ); // Obtenemos categorias para el select del form
-		
 		return "vacantes/formVacante";
 	}
-	
 	
 	
 	
@@ -105,15 +109,13 @@ public class VacantesController {
 		// En caso de todo correcto	
 		vacantesService.guardar(vacante);
 		
-		redirectAttributes.addFlashAttribute("msg", "Registro agregado con exito!!");
+		redirectAttributes.addFlashAttribute("msgCreate", "Registro guardado con exito!!");
 		
 		return "redirect:/vacantes/index";
 	}
 
 	
 	
-	
-
 	// Mapea a la url donde podremos observar el detalle de una vacante por el id dinamico
 	@GetMapping("/view/{id}")
 	public String verDetalle( @PathVariable("id") int idVacante, Model model) {
@@ -123,9 +125,48 @@ public class VacantesController {
 		model.addAttribute("vacante", vacante);
 		
 		
-		// TODO: Buscar los detalles de la vacante en la BD
-		
 		return "detalle";
+	}
+	
+	
+	
+	// EDITAR UNA VACANTE
+	// ENVIAMOS EL ID AL FORMULARIO PARA POBLARLO
+	@GetMapping("/edit/{id}")
+	public String editar(@PathVariable("id") int idVacante,  Model model) {
+		
+		Vacante vacante = vacantesService.buscarPorId( idVacante );
+		
+		model.addAttribute("vacante", vacante);
+		
+		return "vacantes/formVacante";
+	}
+	
+	
+	
+	
+	// ELIMINAR UNA VACANTE
+	// Nos permite mediante el mapeo obtener el id dinamico para eliminar un registro especifico
+	@GetMapping("/delete/{id}")
+	public String eliminar( @PathVariable("id") int idVacante, RedirectAttributes redirectAttributes) {
+		
+		vacantesService.eliminar(idVacante);
+		
+		redirectAttributes.addFlashAttribute("msgDelete", "Registro eliminado con exito!!");
+		
+		return "redirect:/vacantes/index";
+	}
+	
+	
+	
+	//=================================================== OTROS MÉTODOS ======================================================//
+	
+	// AGREGAMOS ATRIBUTOS AL MODELO PARA TODOS LOS MÉTODOS
+	@ModelAttribute
+	public void setGenericos(Model model) {
+		
+		model.addAttribute("categorias", categoriaService.obtenerCategorias() ); // Obtenemos categorias para el select del form
+		
 	}
 	
 	
@@ -135,22 +176,6 @@ public class VacantesController {
 	public void initBinder( WebDataBinder webDataBinder ) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		webDataBinder.registerCustomEditor( Date.class , new CustomDateEditor(dateFormat, false));		
-	}
-	
-	
-	
-	
-	// Nos permite mediante el mapeo obtener el id dinamico para eliminar un registro especifico
-	@GetMapping("/delete")
-	public String eliminar( @RequestParam("id") int idVacante, Model model) {
-		
-		// TODO: Eliminar vacante en la BD
-		
-		System.out.println("Borrando vacante con ID: " + idVacante);
-		
-		model.addAttribute("id", idVacante);
-		
-		return "mensaje";
 	}
 	
 	

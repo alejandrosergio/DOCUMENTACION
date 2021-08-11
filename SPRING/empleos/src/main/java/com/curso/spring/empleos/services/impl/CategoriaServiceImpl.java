@@ -31,7 +31,7 @@ public class CategoriaServiceImpl implements ICategoriaService {
 	
 	// Buscar categorias por ID
 	@Override
-	public Categoria bucarPorID(Integer idCategoria) {
+	public Categoria buscarPorID(Integer idCategoria) {
 		
 		for ( Categoria c: lista) {
 			
@@ -57,19 +57,19 @@ public class CategoriaServiceImpl implements ICategoriaService {
 		Categoria categoria2 = new Categoria();
 		Categoria categoria3 = new Categoria();
 		
-		categoria.setiD(1);
+		categoria.setID(1);
 		categoria.setNombre("Programción");
 		categoria.setDescripcion("Desarrollo de software y paginas web");
 		
-		categoria1.setiD(2);
+		categoria1.setID(2);
 		categoria1.setNombre("Programción 1");
 		categoria1.setDescripcion("Desarrollo de software y paginas web");
 		
-		categoria2.setiD(3);
+		categoria2.setID(3);
 		categoria2.setNombre("Programción 2");
 		categoria2.setDescripcion("Desarrollo de software y paginas web");
 		
-		categoria3.setiD(4);
+		categoria3.setID(4);
 		categoria3.setNombre("Programción 3");
 		categoria3.setDescripcion("Desarrollo de software y paginas web");
 
@@ -78,7 +78,12 @@ public class CategoriaServiceImpl implements ICategoriaService {
 		lista.add(categoria2);
 		lista.add(categoria3);
 	
-	
+		
+	}
+
+	@Override
+	public void eliminar(Integer idVacante) {
+		// TODO Auto-generated method stub
 		
 	}
 

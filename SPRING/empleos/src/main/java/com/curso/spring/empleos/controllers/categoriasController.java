@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -60,12 +61,40 @@ public class categoriasController {
 			}
 			return "categorias/formCategoria";
 		}
-
-
-		// En caso de todo correcto
+		
+		
+		// En caso de todo correcto	
 		categoriaService.guardar(categoria);
 		
-		redirectAttributes.addFlashAttribute("msg", "Registro agregado con exito!!");
+		redirectAttributes.addFlashAttribute("msgCreate", "Registro guardado con exito!!");
+		
+		return "redirect:/categorias/index";
+	}
+	
+	
+	
+	// EDITAR UNA VACANTE
+	// ENVIAMOS EL ID AL FORMULARIO PARA POBLARLO
+	@GetMapping("/edit/{id}")
+	public String editar(@PathVariable("id") int idCategoria,  Model model) {
+		
+		Categoria categoria = categoriaService.buscarPorID( idCategoria);
+		
+		model.addAttribute("categoria", categoria);
+		
+		return "categorias/formCategoria";
+	}
+	
+	
+	
+	// ELIMINAR UNA CATEGORIA
+	// Nos permite mediante el mapeo obtener el id dinamico para eliminar un registro especifico
+	@GetMapping("/delete/{id}")
+	public String eliminar( @PathVariable("id") int idVacante, RedirectAttributes redirectAttributes) {
+		
+		categoriaService.eliminar(idVacante);
+		
+		redirectAttributes.addFlashAttribute("msgDelete", "Registro eliminado con exito!!");
 		
 		return "redirect:/categorias/index";
 	}

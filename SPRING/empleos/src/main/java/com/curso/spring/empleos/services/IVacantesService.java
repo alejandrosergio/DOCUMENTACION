@@ -24,6 +24,10 @@ public interface IVacantesService {
 	List<Vacante> buscarDestacadas();
 	
 	
+	// Debemos eliminar una vacante por su ID
+	void eliminar(Integer idVacante);
+	
+	
 	
 
 }
