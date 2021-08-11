@@ -62,17 +62,69 @@ public class JpaDemoApplication  implements CommandLineRunner{
 		System.out.println("Spring DATA-JPA");
 		
 
-		buscarUsuario();
+		buscarvacantePorEstatus();
 			
 	}
 	
-	// -------------====================================== OTROS METODOS ============================================-------------
+	
+	
+	// -------------====================================== QUERY METHOD ============================================-------------//
+	
+	
+	// Buscar Vacante por destacado y estatus ordenado por ID Desc
+	
+	
+	@SuppressWarnings("unused")
+	private void buscarVacantesPorDestacadoEstatus() {
+			
+			List<Vacante> list = vacantesRepository.findByDestacadoAndEstatusOrderByIdDesc(1 ,"Aprobada");
+			
+			System.out.println("Total registros encontrados: " + list.size());
+			
+			for(Vacante vacante: list) {
+				
+				//System.out.println(vacante.getID() + ": " + vacante.getNombre() + ": " + vacante.getEstatus() + ": " + vacante.getDestacado());
+				
+			}
+		}
+	
+	
+	
+	
+	
+	
+	// Buscar vacante por estatus
+
+
+	@SuppressWarnings("unused")
+	private void buscarvacantePorEstatus() {
+		
+		List<Vacante> list = vacantesRepository.findByEstatus("Aprobada");
+		
+		System.out.println("Total registros encontrados: " + list.size());
+		
+		for(Vacante vacante: list) {
+			
+			System.out.println(vacante.getID() + ": " + vacante.getNombre() + ": " + vacante.getEstatus() );
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	// -------------====================================== OTROS METODOS ============================================-------------//
 	
 	
 	/**
 	 * Método para buscar un usuario y desplegar sus perfiles asociados
 	 */
 	
+	@SuppressWarnings("unused")
 	private void buscarUsuario() {
 	
 		Optional<Usuario> optional = usuariosRepository.findById(1);
