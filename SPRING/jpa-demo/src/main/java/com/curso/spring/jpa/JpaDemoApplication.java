@@ -62,7 +62,7 @@ public class JpaDemoApplication  implements CommandLineRunner{
 		System.out.println("Spring DATA-JPA");
 		
 
-		buscarvacantePorEstatus();
+	
 			
 	}
 	

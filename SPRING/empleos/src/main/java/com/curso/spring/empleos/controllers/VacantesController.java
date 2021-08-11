@@ -35,11 +35,17 @@ public class VacantesController {
 	@Value("${ruta.imagenes}")
 	private String ruta;
 	
+	
+	// INYECTAMOS LA INTERFACE IVACANTES-SERVICE
 	@Autowired
 	private IVacantesService vacantesService;
 	
+	
+	// INYECTAMOS LA INTERFACE ICATEGORIAS-SERVICE
 	@Autowired
+    //@Qualifier("categoriaServiceJpa")
 	private ICategoriaService categoriaService;
+	
 	
 	
 	// Listaremos todas las vacantes
@@ -53,17 +59,22 @@ public class VacantesController {
 		return "vacantes/listVacantes";
 	}
 	
+	
+	
+	
 	// Mapea a la url donde se encunetra el formulario para crear una vacante
 	@GetMapping("/create")
 	public String crear(Vacante vacante, Model model) {
 		
-		model.addAttribute("categorias", categoriaService.obtenerCategorias() );
+		model.addAttribute("categorias", categoriaService.obtenerCategorias() ); // Obtenemos categorias para el select del form
 		
 		return "vacantes/formVacante";
 	}
 	
 	
-	// Mapea a la url donde se ara el data binding y retornara la vista de las listas de vacantes
+	
+	
+	// Mapea a la url donde se hara el data binding y retornara la vista de las listas de vacantes
 	@PostMapping("/save")
 	public String guardar( Vacante vacante, BindingResult bindingResult,  RedirectAttributes redirectAttributes, @RequestParam("archivoImagen") MultipartFile multiPart ) {
 		
@@ -94,13 +105,14 @@ public class VacantesController {
 		// En caso de todo correcto	
 		vacantesService.guardar(vacante);
 		
-		System.out.println("Vacante: " + vacante);
-		
 		redirectAttributes.addFlashAttribute("msg", "Registro agregado con exito!!");
 		
 		return "redirect:/vacantes/index";
 	}
 
+	
+	
+	
 
 	// Mapea a la url donde podremos observar el detalle de una vacante por el id dinamico
 	@GetMapping("/view/{id}")

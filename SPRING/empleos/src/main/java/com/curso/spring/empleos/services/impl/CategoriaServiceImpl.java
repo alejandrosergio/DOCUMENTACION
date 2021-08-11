@@ -1,4 +1,4 @@
-package com.curso.spring.empleos.services;
+package com.curso.spring.empleos.services.impl;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.curso.spring.empleos.models.Categoria;
+import com.curso.spring.empleos.services.ICategoriaService;
 
 @Service
+//@Primary
 public class CategoriaServiceImpl implements ICategoriaService {
 
 	// Creamos una lista donde almacenaremos las categorias de tipo Vacante -> modelo

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.curso.spring.empleos.models.Vacante;
 import com.curso.spring.empleos.services.IVacantesService;
@@ -20,16 +21,29 @@ public class HomeController {
 	
 	
 	// HOME
+	
+	
+	@ModelAttribute
+	public void setGenericos( Model model ) {
+	
+		// ATRIBUTO PARA VACANTES-DESTACADAS
+		model.addAttribute("vacantesDestacadas", serviceVacantes.buscarDestacadas());
+		
+		// ATRIBUTO PARA VACANTES
+		model.addAttribute("vacantes", serviceVacantes.obtenerVacantes());
+	}
+	
+	
+	
 
+	// URL RAIZ NOS ENSEÑA LAS VACANTES DESTACADAS
 	@GetMapping("/")
 	public String mostrarHome(Model model) {
-												
-		List<Vacante> lista = serviceVacantes.obtenerVacantes();
-		
-		model.addAttribute("vacantes", lista);
 
 		return "home"; // retorno de la vista
+		
 	}
+	
 	
 	
 	
@@ -72,14 +86,10 @@ public class HomeController {
 	
 	
 	
-	
 	// TABLA
 	
 	@GetMapping("/tabla")
 	public String mostrarVacante( Model model) {
-		
-		List<Vacante> lista =  serviceVacantes.obtenerVacantes();
-		model.addAttribute("vacantes", lista);
 		
 		return "tabla";
 	}

@@ -17,7 +17,8 @@
   </head>
 
   <body>
-    <header th:insert="fragments/menu :: menu-principal"></header>  
+  
+    <header th:insert="fragments/menu :: menu-principal"></header>
 
     <main role="main">     
       <hr>
@@ -44,7 +45,7 @@
               </thead>
               <tbody>
                 <tr th:each="vacante: ${vacantes}">
-                  <td th:text="${vacante.categoria}"></td>
+                  <td th:text="${vacante.categoria.nombre}"></td>
                   <td th:text="${vacante.nombre}"></td>
                   <td th:text="${vacante.fecha}"></td>
                   <td th:text="${vacante.estatus}"></td>

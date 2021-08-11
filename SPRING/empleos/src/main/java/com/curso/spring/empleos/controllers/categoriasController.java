@@ -16,10 +16,13 @@ import com.curso.spring.empleos.models.Categoria;
 import com.curso.spring.empleos.services.ICategoriaService;
 
 @Controller
-@RequestMapping("/categorias")
+@RequestMapping(value = "/categorias")
 public class categoriasController {
 	
+	
+	// INYECTAMOS LA INTERFACE ICATEGORIAS-SERVICE
 	@Autowired
+	//@Qualifier("categoriaServiceJpa")
 	private ICategoriaService categoriaService;
 	
 	
@@ -34,11 +37,16 @@ public class categoriasController {
 		return "categorias/listCategorias";
 	}
 	
+	
+	
+	
 	// Mapea a la url donde se encunetra el formulario para crear una cateoria
 	@GetMapping("/create")
 	public String crear(Categoria categoria) {
 		return "categorias/formCategoria";
 	}
+	
+	
 	
 	
 	// Mapea a la url donde se ara el data binding y retornara la vista de las listas de vacantes

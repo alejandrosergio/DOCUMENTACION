@@ -42,6 +42,30 @@ ANOTACIONES
 
 -----------------------------------
 
+@Primary: significa que cuando hay dos tipos de usuario en el sistema, se prefiere la anotación @Primary para la inyección
+
+-----------------------------------
+
+@Qualifier: Cuando hay mas de 1 bean debemos espesificar como parametro la clase que implementa el bean
+
+-----------------------------------
+
+@ModelAttribute: se usa como parte de una aplicación web Spring MVC y se puede usar en dos escenarios. En primer lugar, se puede usar para inyectar datos en un modelo de carga pre-JSP. Esto es especialmente útil para garantizar que se requiere un JSP para mostrar todos los datos en sí.
+
+-----------------------------------
+
+@Configuration: Anotación encargada de definir que la clase es una clase de configuración para el framework
+
+-----------------------------------
+
+
+
+-----------------------------------
+
+
+
+-----------------------------------
+
 
 
 -----------------------------------

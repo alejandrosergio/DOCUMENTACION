@@ -25,13 +25,13 @@
 
         <div class="row">
           <div class="col-md-3">            
-            <img class="rounded mx-auto d-block" th:src="@{/images/{img}(img=${vacante.imagen}) }" alt="Generic placeholder image" width="220" height="220">            
+            <img class="rounded mx-auto d-block" th:src="@{/logos/{img}(img=${vacante.imagen}) }" alt="Generic placeholder image" width="220" height="220">            
           </div>
           <div class="col-md-9">
             <div class="card">
               <h4 class="card-header">Aplicar para <strong th:text="${vacante.nombre}"></strong></h4>              
               <div class="card-body">
-                <h5 class="card-title"><strong>Categoría: </strong> <span th:text="${vacante.ID}"></span></h5>
+                <h5 class="card-title"><strong>Categoría: </strong> <span th:text="${vacante.categoria.nombre}"></span></h5>
                 <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${vacante.fecha}"></span></h6>                
                 <h6 class="card-title"><strong>Salario Ofrecido: </strong><span th:text="${vacante.salario}"></span></h6>
                 <p class="card-text" th:text="${vacante.descripcion}"></p>
@@ -39,7 +39,7 @@
                 <div class="card bg-light mb-3" >
                   <div class="card-body">
                     <h5 class="card-title">Detalles de la oferta de trabajo</h5>
-                    <p class="card-text">lorem input dolor dwnciensocns cesnocenscse vesnoesnoveo ensocmesnvoe voesv w ceos ces  eosv e voe oeo seo cov eovescszeces cecw ocne ow vv veo ve ve v veo ve </p>
+                    <p class="card-text" th:utext="${vacante.detalles}"></p>
                   </div>
                 </div>   
                 <a class="btn btn-outline-primary" href="#" role="button" title="Quiero aplicar para esta oferta de trabajo."><i class="fas fa-file" aria-hidden="true"></i> Aplicar oferta</a>                            

@@ -9,10 +9,14 @@ public interface ICategoriaService {
 	// Debemos permitir guardar una categoria
 	void guardar( Categoria categoria);
 	
-	// Debemos obtener las categorias
+	
+	
+	// Debemos obtener las categorias en una lista
 	List<Categoria> obtenerCategorias();
 	
-	// Debemos buscar una categoria en especifico por su ID
+	
+	
+	// Debemos buscar una categoria por su ID
 	Categoria bucarPorID(Integer id);
 	
 

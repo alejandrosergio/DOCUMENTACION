@@ -1,4 +1,4 @@
-package com.curso.spring.empleos.services;
+package com.curso.spring.empleos.services.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.curso.spring.empleos.models.Vacante;
+import com.curso.spring.empleos.services.IVacantesService;
 
 
 @Service
@@ -120,6 +121,13 @@ public class VacantesServiceImpl implements IVacantesService {
 	@Override
 	public void guardar(Vacante vacante) {
 		lista.add(vacante);	
+	}
+
+
+	@Override
+	public List<Vacante> buscarDestacadas() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
