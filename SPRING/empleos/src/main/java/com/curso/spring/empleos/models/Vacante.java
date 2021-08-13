@@ -38,6 +38,12 @@ public class Vacante {
 	
 	
 	
+	// MÉTODOS PROPIOS
+	public void reset() {
+		this.imagen = null;
+	}
+	
+	
 	// CONSTRUCTOR
 	public Vacante() {}
 	

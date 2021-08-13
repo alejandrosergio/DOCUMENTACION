@@ -3,6 +3,8 @@ package com.curso.spring.empleos.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,6 +40,18 @@ public class categoriasController {
 		return "categorias/listCategorias";
 	}
 	
+	// MÉTODO PAGINACION DE CATEGORIAS	
+	@GetMapping(value = "/indexPaginate")
+	public String mostrarIndexPaginado(Model model, Pageable page) {
+		
+		Page<Categoria> lista = categoriaService.buscarTodas(page); 
+		
+		model.addAttribute("categorias", lista);
+		
+		
+		return "categorias/listCategorias";
+	}
+	
 	
 	
 	
@@ -68,7 +82,7 @@ public class categoriasController {
 		
 		redirectAttributes.addFlashAttribute("msgCreate", "Registro guardado con exito!!");
 		
-		return "redirect:/categorias/index";
+		return "redirect:/categorias/indexPaginate";
 	}
 	
 	
@@ -96,7 +110,7 @@ public class categoriasController {
 		
 		redirectAttributes.addFlashAttribute("msgDelete", "Registro eliminado con exito!!");
 		
-		return "redirect:/categorias/index";
+		return "redirect:/categorias/indexPaginate";
 	}
 
 }

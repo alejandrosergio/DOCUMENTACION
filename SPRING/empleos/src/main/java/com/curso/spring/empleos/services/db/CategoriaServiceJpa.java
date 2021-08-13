@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.curso.spring.empleos.models.Categoria;
@@ -27,9 +29,6 @@ public class CategoriaServiceJpa implements ICategoriaService { // Lo implementa
 	// GUARDAR UNA CATEGORIA
 	@Override
 	public void guardar(Categoria categoria) {
-		
-		
-		System.out.println(categoria);
 		
 		categoriasRepository.save(categoria);
 
@@ -69,6 +68,13 @@ public class CategoriaServiceJpa implements ICategoriaService { // Lo implementa
 		categoriasRepository.deleteById(idVacante);
 		
 		
+	}
+	
+	
+	// MÉTODO PARA PAGINAR LA TABLA DE CATEGORIAS
+	@Override
+	public Page<Categoria> buscarTodas(Pageable page) {
+		return categoriasRepository.findAll(page);
 	}
 
 }

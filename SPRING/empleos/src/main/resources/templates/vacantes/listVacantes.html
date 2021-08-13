@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
 
     <title>EmpleosApp | Listado de Ofertas de Trabajo</title>
     <!-- Bootstrap core CSS -->
@@ -61,7 +60,22 @@
                 
               </tbody>
             </table>
-            
+            <!-- PAGINACIÓN -->
+            <nav th:if="${vacantes.totalPages > 0}" aria-label="Page navigation example" >
+				<ul class="pagination justify-content-center">
+					<li class="page-item" th:classappend="${vacantes.number == 0 ? 'disabled' : ''}">
+						<a th:href="@{/vacantes/indexPaginate(page=${vacantes.number - 1})}" class="page-link">Anterior</a>
+					</li>
+					
+					<li class="page-item" th:classappend="${i eq vacantes.number + 1} ? 'active'" th:each="i : ${#numbers.sequence( 1, vacantes.totalPages, 1)}">
+						<a class="page-link" th:href="@{/vacantes/indexPaginate?page={tmpPag} (tmpPag=${i-1}) }" th:text="${i}" th:title="${'Page '+ i}" data-toggle="tooltip"></a>
+					</li>
+					<li class="page-item" th:classappend="${vacantes.number == (vacantes.totalPages - 1) ? 'disabled' : ''}">
+						<a th:href="@{/vacantes/indexPaginate(page=${vacantes.number + 1})}" class="page-link">Siguiente</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- PAGINACIÓN -->
           </div>
         </div>
       </div> <!-- /container -->

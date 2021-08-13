@@ -2,6 +2,9 @@ package com.curso.spring.empleos.services;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.curso.spring.empleos.models.Categoria;
 
 public interface ICategoriaService {
@@ -23,6 +26,10 @@ public interface ICategoriaService {
 	
 	// Debemos eliminar una vacante por su ID
 	void eliminar(Integer idVacante);
+	
+	
+	// Debemos implemetar una paginacion en la tabla
+	Page<Categoria> buscarTodas(Pageable page);
 	
 
 }

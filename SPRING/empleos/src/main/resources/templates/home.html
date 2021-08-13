@@ -26,15 +26,11 @@
         <div class="container">
           <h3>Encuentra el trabajo que andas buscando.</h3>
           Puedes buscar por descripción y categoría.
-          <form class="form-inline">
-            <input type="text" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Escriba una búsqueda">&nbsp;
-            <select class="custom-select custom-select mb-3">
-              <option selected>Seleccione una categoría</option>
-              <option value="1">Ventas</option>
-              <option value="2">Contabilidad</option>
-              <option value="3">Transporte</option>
-              <option value="4">Informática</option>
-              <option value="5">Construcción</option>
+          <form class="form-inline" th:object="${search}" th:action="@{/search}" method="GET">
+            <input type="text" class="form-control mb-3" th:field="*{descripcion}" placeholder="Escriba una búsqueda">&nbsp;
+            <select class="custom-select custom-select mb-3" th:field="*{categoria.ID}">
+              <option th:value="${null}" selected>Seleccione una categoría</option>
+              <option th:each="categoria : ${categorias}" th:value="${categoria.ID}" th:text="${categoria.nombre}"></option>
             </select>&nbsp;
             <button type="submit" class="btn btn-primary mb-3">Buscar</button>
           </form>
@@ -45,14 +41,14 @@
       <div class="container"> 
         <h2 class="font-weight-bold text-center text-capitalize">DESTACADOS</h2>
         <hr>
-        <div class="row" th:each="vacante: ${vacantesDestacadas}">
+        <div class="row" th:each="vacante: ${vacantes}">
           <div class="col-md-3">            	 
             <img class="rounded mx-auto d-block" th:src="@{/logos/{img}(img=${vacante.imagen}) }" alt="Generic placeholder image" width="220" height="220">            
           </div>
           <div class="col-md-9">
             <h2 th:text="${vacante.nombre}"></h2>
             <h6 class="card-title"><strong>Categoría:</strong> <span th:text="${vacante.categoria.nombre}"></span></h6>
-            <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${vacante.fecha}"></span></h6>                
+            <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${#dates.format(vacante.fecha, 'dd-MM-yyyy')}"></span></h6>                
             <p th:text="${vacante.descripcion}"></p>
             <p><a th:href="@{/vacantes/view/{id} (id=${vacante.ID}) }" class="btn btn-outline-primary">Ver detalle</a></p>            
           </div>

@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.curso.spring.empleos.models.Vacante;
@@ -68,6 +71,23 @@ public class VacanteServiceJpa implements IVacantesService {
 		vacantesRepository.deleteById( idVacante );
 		
 	}
+
+	// METODO PARA FILTRAR VACANTES EN EL HOME
+	@Override
+	public List<Vacante> buscarByExample( Example<Vacante> example ) {
+		return vacantesRepository.findAll(example);
+	}
+
+	
+	// MÉTODO PARA PAGINAR LA TABLA DE VACANTES
+	@Override
+	public Page<Vacante> buscarTodas(Pageable page) {
+		return vacantesRepository.findAll(page);
+	}
+	
+	
+
+
 
 
 }

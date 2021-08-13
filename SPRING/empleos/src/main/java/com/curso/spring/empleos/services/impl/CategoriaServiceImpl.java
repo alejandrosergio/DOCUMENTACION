@@ -3,6 +3,8 @@ package com.curso.spring.empleos.services.impl;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.curso.spring.empleos.models.Categoria;
@@ -85,6 +87,12 @@ public class CategoriaServiceImpl implements ICategoriaService {
 	public void eliminar(Integer idVacante) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Page<Categoria> buscarTodas(Pageable page) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
