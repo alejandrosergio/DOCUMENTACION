@@ -21,13 +21,16 @@ public class UsuariosServiceJpa implements IUsuariosService {
 	}
 
 	public void eliminar(Integer idUsuario) {
-		
 		usuariosRepository.deleteById(idUsuario);
 	}
 
 	public List<Usuario> buscarTodos() {
-		
 		return usuariosRepository.findAll();
+	}
+
+	@Override
+	public Usuario buscarPorUsername(String username) {
+		return usuariosRepository.findByUsername(username);
 	}
 
 

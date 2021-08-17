@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>EmpleosApp | Ingresar al Sistema</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <header th:insert="fragments/menu :: menu-principal"></header>
+
+    <main role="main">
+      <hr>
+      <div class="container"> 
+
+        <div class="card">
+          <div class="card-body">
+            <form class="form-signin" th:action="@{/login}" method="POST">
+            
+            <!-- ERROR AL INGRESAR -->
+            <div th:if="${param.error}">
+				<span class="text-danger">Usuario / Password incorrectos!</span>
+			</div>
+			
+			
+              <div class="row">
+                <div class="col-md-4"> 
+                </div>  
+                <div class="col-md-4"> 
+                  <img class="mb-4 rounded mx-auto d-block" th:src="@{/images/lock.png}" alt="" width="128" height="128">
+                  <h4 class="h3 mb-3 font-weight-normal">Ingresar</h4>
+                  <label for="username" class="sr-only">Username</label>
+                  <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus><br>
+                  <label for="password" class="sr-only">Password</label>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="Password" required><br>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+                  <p class="text-primary" style="font-size: small">¿Todavía no estas registrado? <a>Regístrate</a></p>
+                  <!--
+                  <hr>
+                  <h6 class="form-signin-heading" style="color:blue;font-weight:bold;">Aplicaci&oacute;n protegida con Spring Security 5</h6>
+                  <strong>PERFIL EDITOR</strong>
+                  <ul>
+                    <li><strong>User: </strong>luis</li>
+                    <li><strong>Pass: </strong>luis123</li>
+                  </ul>   
+                  <strong>PERFIL GERENTE</strong>
+                  <ul>
+                    <li><strong>User: </strong>marisol</li>
+                    <li><strong>Pass: </strong>mari123</li>
+                  </ul>
+                  -->
+                </div>
+                <div class="col-md-4"> 
+                </div>
+              </div>   
+            </form>
+          </div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+    
+    <footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>     
+  </body>
+</html>

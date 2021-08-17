@@ -4,17 +4,26 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.curso.spring.empleos.models.Perfil;
@@ -41,9 +50,11 @@ public class HomeController {
 	@Autowired
 	private ICategoriaService categoriaService;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	
 	// HOME
-	
 	
 	@ModelAttribute
 	public void setGenericos( Model model ) {
@@ -64,6 +75,34 @@ public class HomeController {
 		
 		// ATRIBUTO SEARCH PARA BUSCAR
 		model.addAttribute("search", vacanteSearch);
+	}
+	
+	
+	
+	@GetMapping("/index")
+	public String mostrarIndex(Authentication auth, HttpSession session) {
+		
+		for(GrantedAuthority rol: auth.getAuthorities()) {
+			
+			System.out.println("ROL: " + rol.getAuthority() );
+			
+		}
+		
+		String username = auth.getName();
+		
+		if (session.getAttribute("usuario") == null) {
+			
+			Usuario usuario = usuariosService.buscarPorUsername(username);
+			
+			usuario.setPassword(null);
+			
+			session.setAttribute("usuario", usuario);
+			
+			System.out.println(usuario);
+			
+		}
+		
+		return "redirect:/";
 	}
 	
 	
@@ -115,8 +154,19 @@ public class HomeController {
 		return "formRegistro";
 	}
 	
+	
+	
+	
+	// GUARDAR UN USUARIO
+	
 	@PostMapping("/signup")
 	public String guardarRegistro(Usuario usuario, RedirectAttributes attributes) {
+		
+		// ENCRIPTAMOS LA CONTRASEÑA
+		String pwdPlano = usuario.getPassword();
+		String pwdEncriptado = passwordEncoder.encode(pwdPlano);
+		usuario.setPassword(pwdEncriptado);
+		
 		
 		usuario.setEstatus(1); // Activado por defecto
 		
@@ -139,6 +189,39 @@ public class HomeController {
 	
 	
 	
+	// ENCRIPTAR
+	
+	@GetMapping("/bcrypt/{texto}")
+	@ResponseBody
+	public String encriptar(@PathVariable("texto") String texto ){
+		
+		return texto + " encriptado en bcrypt: " + passwordEncoder.encode(texto);
+		
+	}
+	
+	
+	// LOGIN
+	@GetMapping("/login" )
+	public String mostrarLogin() {
+	    return "formLogin";
+	}
+	
+	
+	// LOGOUT - SALIR
+	
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request){
+		
+		SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+		
+		logoutHandler.logout(request, null, null);
+		
+		return "redirect:/login";
+	}
+	
+	
+	
+	
 	// LISTADO
 
 	@GetMapping("/listado")
@@ -156,8 +239,6 @@ public class HomeController {
 		return "listado";
 
 	}
-	
-	
 	
 	
 	// DETALLE
