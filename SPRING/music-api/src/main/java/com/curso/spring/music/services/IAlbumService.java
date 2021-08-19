@@ -18,4 +18,6 @@ public interface IAlbumService {
 	// DEBEMOS ELIMINAR UN ALBUN EN LA BD
 	void eliminarAlbum(int idAlbum);
 	
+	void buscarId(int idMusic);
+	
 }

@@ -38,7 +38,15 @@ public class AlbunsServiceImpl implements IAlbumService {
 	}
 
 
+	@Override
+	public void buscarId(int idMusic) {
+		
+		albumsRepository.findById(idMusic);
+		
+	}
 
+
+	
 
 	
 }
