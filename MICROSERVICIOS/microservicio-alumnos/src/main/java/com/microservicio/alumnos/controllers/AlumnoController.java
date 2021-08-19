@@ -67,7 +67,7 @@ public class AlumnoController {
 		
 		
 		/*
-		 *  Guardar- persistir alumno en la ruta raiz
+		 *  Guardar - persistir alumno en la ruta raiz
 		 */
 		@PostMapping
 		public ResponseEntity<?> guardarAlumno(@RequestBody Alumno alumno){
