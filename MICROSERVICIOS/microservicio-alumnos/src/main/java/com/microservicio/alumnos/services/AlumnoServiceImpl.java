@@ -1,4 +1,4 @@
-package com.microservicios.app.alumnos.services;
+package com.microservicio.alumnos.services;
 
 import java.util.Optional;
 
@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.microservicios.app.alumnos.models.entity.Alumno;
-import com.microservicios.app.alumnos.models.repository.IAlumnoRepository;
+import com.microservicio.alumnos.models.entity.Alumno;
+import com.microservicio.alumnos.models.repository.IAlumnoRepository;
+
 
 
 @Service

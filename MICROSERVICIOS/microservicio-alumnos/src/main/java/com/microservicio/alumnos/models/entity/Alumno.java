@@ -1,4 +1,4 @@
-package com.microservicios.app.alumnos.models.entity;
+package com.microservicio.alumnos.models.entity;
 
 import java.util.Date;
 
@@ -11,6 +11,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 
 @Entity
 @Table(name = "alumnos")

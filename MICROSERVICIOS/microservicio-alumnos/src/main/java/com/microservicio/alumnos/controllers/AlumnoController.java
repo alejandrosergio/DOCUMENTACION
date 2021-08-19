@@ -1,4 +1,4 @@
-package com.microservicios.app.alumnos.controllers;
+package com.microservicio.alumnos.controllers;
 
 import java.util.Optional;
 
@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.microservicios.app.alumnos.models.entity.Alumno;
-import com.microservicios.app.alumnos.services.IAlumnoService;
+import com.microservicio.alumnos.models.entity.Alumno;
+import com.microservicio.alumnos.services.IAlumnoService;
+
 
 @RestController
 public class AlumnoController {
@@ -112,10 +113,3 @@ public class AlumnoController {
 		
 	
 }
-
-
-
-
-
-
-

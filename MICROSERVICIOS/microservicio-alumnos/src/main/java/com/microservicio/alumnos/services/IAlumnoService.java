@@ -1,8 +1,8 @@
-package com.microservicios.app.alumnos.services;
+package com.microservicio.alumnos.services;
 
 import java.util.Optional;
 
-import com.microservicios.app.alumnos.models.entity.Alumno;
+import com.microservicio.alumnos.models.entity.Alumno;
 
 
 public interface IAlumnoService {
