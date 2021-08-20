@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,6 +45,16 @@ public class AlumnoController extends CommonController<Alumno, IAlumnoService>{
 			
 			return ResponseEntity.status(HttpStatus.CREATED).body(this.service.save(alumnoBD)); // -> retorno de alumno actualizado
 			
+		}
+		
+		
+		/*
+		 * Filtrar alumnos mediante el termino enviado por nombre y apellido
+		 * 
+		 */
+		@GetMapping("/filtrar/{term}")
+		public ResponseEntity<?> filtrarAlumnos(@PathVariable(name = "term") String termino){
+			return ResponseEntity.ok(this.service.findByNombreOrApellido(termino));
 		}
 		
 	

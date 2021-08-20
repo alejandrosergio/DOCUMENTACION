@@ -110,8 +110,8 @@ public class Alumno {
 		
 		
 		/*
-		 * método que nos permite comparar si el alumno que viene pertenece en la bd
-		 * si pertenece va eliminar un alumno de la lista
+		 * método que nos permite comparar si el objeto(alumno) se encuentra en la lista
+		 * 
 		 * 
 		 */
 		@Override
@@ -119,18 +119,18 @@ public class Alumno {
 			
 			if ( this == obj ) {
 				
-				return true;  // -> return true -> son iguales
+				return true;  // -> return true -> son iguales -> lo encuentra lo elimina
 			}
 			
-			if(!(obj instanceof Alumno)) {
+			if(!(obj instanceof Alumno)) { // -> si no es una instancia de alumno
 				
 				return false;  // -> return false -> son distintos
 			}
 			
-			Alumno alumno = (Alumno) obj;
+			Alumno alumno = (Alumno) obj; // -> comparamos id mediante un cast
 			
 			
-			return this.ID != null && this.ID.equals(alumno.getID()); // -> return true o false
+			return this.ID != null && this.ID.equals(alumno.getID()); // -> return true o false -> true elimina
 		}
 		
 		

@@ -37,7 +37,7 @@ public class Curso {
 		@Temporal(TemporalType.TIMESTAMP)
 		private Date createAt;
 		
-		@OneToMany(fetch = FetchType.LAZY)
+		@OneToMany(fetch = FetchType.LAZY) // -> carga perezosa
 		private List<Alumno> alumnos;
 		
 		
@@ -45,7 +45,7 @@ public class Curso {
 	// CONSTRUCTOR
 		
 		public Curso() {
-			this.alumnos = new ArrayList<>();
+			this.alumnos = new ArrayList<>(); // -> inicializamos alumno para no quedar null
 		}
 		
 		
@@ -64,7 +64,7 @@ public class Curso {
 		
 		
 		/*
-		 * Permite agregar alumnos a la lista 1 a 1
+		 * Permite agregar alumnos a la lista 1 a 1 en el controlador -> método asignarAlumnos
 		 *  
 		 */
 		public void addAlumno(Alumno alumno) {
@@ -74,6 +74,8 @@ public class Curso {
 		
 		/*
 		 * Permite remover alumnos a la lista 1 a 1
+		 * 
+		 * TODO: implemento en la entity alumno -> método equals -> eliminar
 		 *  
 		 */
 		public void removeAlumno(Alumno alumno) {

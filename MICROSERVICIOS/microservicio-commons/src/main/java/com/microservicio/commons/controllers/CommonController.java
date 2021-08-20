@@ -77,7 +77,7 @@ public class CommonController<E, S extends ICommonService<E>> {
 		@DeleteMapping("/{id}")
 		public ResponseEntity<?> eliminarRegistro(@PathVariable(name = "id") Long idRegistro){
 			service.deleteById(idRegistro);
-				return  ResponseEntity.noContent().build();
+				return ResponseEntity.noContent().build();
 		}
 	
 }
