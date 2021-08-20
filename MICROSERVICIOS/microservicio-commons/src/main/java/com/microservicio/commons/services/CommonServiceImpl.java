@@ -13,7 +13,7 @@ public class CommonServiceImpl< E , R extends JpaRepository<E, Long>> implements
 	 *  Inyección del repositorio Entity
 	 */
 	@Autowired
-	private R entityRepository;
+	protected R entityRepository;
 	
 
 	/*

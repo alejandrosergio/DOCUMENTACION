@@ -5,6 +5,7 @@ import java.util.Optional;
 
 public interface ICommonService<E> {
 
+	
 	/*
 	 * Debemos listar todos los registros 
 	 */

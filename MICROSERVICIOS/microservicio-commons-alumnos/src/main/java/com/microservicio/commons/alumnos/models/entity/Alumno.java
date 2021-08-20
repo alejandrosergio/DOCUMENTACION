@@ -1,4 +1,4 @@
-package com.microservicio.alumnos.models.entity;
+package com.microservicio.commons.alumnos.models.entity;
 
 import java.util.Date;
 
@@ -20,31 +20,31 @@ public class Alumno {
 	
 	// ATRIBUTOS
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true, nullable = false)
-	private Long ID;
-	
-	private String nombre;
-	private String apellido;
-	private String email;
-	
-	@Column(name = "create_at")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date createAt;
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		@Column(name = "id", unique = true, nullable = false)
+		private Long ID;
+		
+		private String nombre;
+		private String apellido;
+		private String email;
+		
+		@Column(name = "create_at")
+		@Temporal(TemporalType.TIMESTAMP)
+		private Date createAt;
 
 	
 	// MÉTODOS PROPIOS
 	
 	
-	/*
-	 * Permite almacenar la fecha en tiempo real del sistema
-	 *  
-	 */
-	@PrePersist
-	public void prePersist() {
-		this.createAt = new Date();
-	}
+		/*
+		 * Permite almacenar la fecha en tiempo real del sistema
+		 *  
+		 */
+		@PrePersist
+		public void prePersist() {
+			this.createAt = new Date();
+		}
 	
 	
 	
@@ -97,7 +97,7 @@ public class Alumno {
 		}
 		
 		
-		// MÉTODO toString
+	// MÉTODO toString
 
 		@Override
 		public String toString() {
