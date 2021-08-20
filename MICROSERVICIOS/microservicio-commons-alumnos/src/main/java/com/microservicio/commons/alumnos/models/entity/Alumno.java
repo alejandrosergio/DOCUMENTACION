@@ -104,5 +104,35 @@ public class Alumno {
 			return "Alumno [ID=" + ID + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
 					+ ", createAt=" + createAt + "]";
 		}
+
+
+	// MÉTODO CLASS OBJECT
+		
+		
+		/*
+		 * método que nos permite comparar si el alumno que viene pertenece en la bd
+		 * si pertenece va eliminar un alumno de la lista
+		 * 
+		 */
+		@Override
+		public boolean equals(Object obj) {
+			
+			if ( this == obj ) {
+				
+				return true;  // -> return true -> son iguales
+			}
+			
+			if(!(obj instanceof Alumno)) {
+				
+				return false;  // -> return false -> son distintos
+			}
+			
+			Alumno alumno = (Alumno) obj;
+			
+			
+			return this.ID != null && this.ID.equals(alumno.getID()); // -> return true o false
+		}
+		
+		
 		
 }

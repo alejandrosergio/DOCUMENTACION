@@ -1,16 +1,24 @@
 package com.microservicio.cursos.models.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.microservicio.commons.alumnos.models.entity.Alumno;
+
+
 
 @Entity
 @Table(name = "cursos")
@@ -29,6 +37,18 @@ public class Curso {
 		@Temporal(TemporalType.TIMESTAMP)
 		private Date createAt;
 		
+		@OneToMany(fetch = FetchType.LAZY)
+		private List<Alumno> alumnos;
+		
+		
+		
+	// CONSTRUCTOR
+		
+		public Curso() {
+			this.alumnos = new ArrayList<>();
+		}
+		
+		
 		
 	// MÉTODOS PROPIOS
 		
@@ -40,6 +60,24 @@ public class Curso {
 		@PrePersist
 		public void prePersist() {
 			this.createAt = new Date();
+		}
+		
+		
+		/*
+		 * Permite agregar alumnos a la lista 1 a 1
+		 *  
+		 */
+		public void addAlumno(Alumno alumno) {
+			this.alumnos.add(alumno);
+		}
+		
+		
+		/*
+		 * Permite remover alumnos a la lista 1 a 1
+		 *  
+		 */
+		public void removeAlumno(Alumno alumno) {
+			this.alumnos.remove(alumno);
 		}
 		
 		
@@ -61,6 +99,10 @@ public class Curso {
 			return createAt;
 		}
 		
+		public List<Alumno> getAlumnos() {
+			return alumnos;
+		}
+		
 		
 		// SETTER'S
 		
@@ -76,13 +118,21 @@ public class Curso {
 			this.createAt = createAt;
 		}
 
+		public void setAlumnos(List<Alumno> alumnos) {
+			this.alumnos = alumnos;
+		}
+
+
 		
-	
 	// MÉTODO toString
 		
 		@Override
 		public String toString() {
-			return "Curso [ID=" + ID + ", nombre=" + nombre + ", createAt=" + createAt + "]";
+			return "Curso [ID=" + ID + ", nombre=" + nombre + ", createAt=" + createAt + ", alumnos=" + alumnos + "]";
 		}
+		
+	
+		
+		
 	
 }
