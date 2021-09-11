@@ -1,5 +1,6 @@
 package com.curso.spring.empleos.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ public class Categoria {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false, unique = true)
 	private Integer ID;
 	
 	private String  nombre;
